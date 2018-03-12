@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/gotham-font.css">
+    <link rel="stylesheet" type="text/css" href="css/materialdesign-icons.css">
+    <style type="text/css">
+    html,
+    body {
+        padding: 0px;
+        margin: 0px;
+        overflow: hidden;
+        height: 100%;
+    }
+    
+    small {
+        font-size: 12px;
+        font-family: monospace;
+        font-weight: normal;
+    }
+    
+    #scroll-container {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        overflow-y: scroll;
+    }
+    
+/*#scroll-container:after {
+    content: '';
+    display: block;
+    height: 9999px;
+    position: relative;
+}*/
+
+    .box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+        font-family: "Arial";
+        font-size: 50px;
+        background-color: #f5f6f7;
+        text-align: center;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        font-weight: bold;
+        /** Prevent Scrollmagic IOS pinning bug **/
+        will-transform: translate;
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transition: all 1200ms cubic-bezier(0.165, 0.840, 0.440, 1.000);
+        box-shadow: -10px 0px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .box {
+        /*transform: translateY(1200px);*/
+    }
+    
+    .box.show {
+        /*transform: translateY(0);*/
+        /*z-index: 1;
+        transition: none;*/
+    }
+    
+    .bar {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 0%;
+        height: 30px;
+        background-color: #60e87d;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="scroll-container">
+        <div class="box show" id="pin-1">
+            <div><small>v0.28</small></div>
+            <div>1</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-2">
+            <div>2</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-3">
+            <div>3</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-4">
+            <div>4</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-5">
+            <div>5</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-6">
+            <div>6</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-7">
+            <div>7</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-8">
+            <div>8</div>
+            <div class="bar"></div>
+        </div>
+        <div class="box" id="pin-9">
+            <div>9</div>
+            <div class="bar"></div>
+        </div>
+    </div>
+</body>
+<script src="scripts/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="scripts/animation.gsap.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+
+
+    // Set new ScrollMagic controller
+    var controller = new ScrollMagic.Controller({
+        container: "#scroll-container"
+    });
+
+
+    /***
+     * ScrollMagic scenes
+     **/
+
+    // Sticked block
+
+    var windowHeight = $(window).height();
+    $(".box").height(windowHeight);
+
+    var scene_a = new ScrollMagic.Scene({
+            offset: 0,
+            duration: windowHeight / 2
+        })
+        .on('start', function(e) {
+            console.log("start scene A");
+            $("#pin-1").addClass("show");
+        })
+        .on('leave', function(e) {
+            $("#pin-1").removeClass("show");
+            console.log("Leave scene A");
+        })
+        .on('progress', function(e) {
+            $("#pin-1 .bar").css("width", e.progress * 100 + "%");
+            //$("#pin-1").css("transform", "translateY("+$("#scroll-container").scrollTop()+"px)")
+            console.log(e.progress);
+        })
+        .addIndicators()
+        .addTo(controller);
+
+    var scene_b = new ScrollMagic.Scene({
+            offset: windowHeight,
+            duration: windowHeight / 2
+        })
+        .on('start', function(e) {
+            console.log("start scene B");
+            $("#pin-2").addClass("show");
+        })
+        .on('leave', function(e) {
+            console.log("Leave scene B");
+            $("#pin-2").removeClass("show");
+        })
+        .on('progress', function(e) {
+            $("#pin-2 .bar").css("width", e.progress * 100 + "%");
+            console.log(e.progress);
+        })
+        .addIndicators()
+        .addTo(controller);
+
+    var scene_c = new ScrollMagic.Scene({
+            offset: windowHeight * 2,
+            duration: windowHeight / 2
+        })
+        .on('start', function(e) {
+            console.log("start scene C");
+            $("#pin-3").addClass("show");
+        })
+        .on('leave', function(e) {
+            console.log("Leave scene C");
+            $("#pin-3").removeClass("show");
+        })
+        .on('progress', function(e) {
+            $("#pin-3 .bar").css("width", e.progress * 100 + "%");
+            console.log(e.progress);
+        })
+        .addIndicators()
+        .addTo(controller);
+
+});
+</script>
+
+</html>

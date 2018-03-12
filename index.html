@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asul" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
+    <style type="text/css">
+      body, html{
+        padding: 0px;
+        margin: 0px;
+      }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
+    <script type="text/javascript">
+
+      let type = "WebGL"
+      if (!PIXI.utils.isWebGLSupported()) {
+          type = "canvas"
+      }
+
+      var video = document.createElement("video");
+      video.preload = "auto";
+      video.loop = true;
+      video.src = "leman2.mp4";
+
+      PIXI.utils.sayHello(type)
+
+      let app = new PIXI.Application({
+          width: window.innerWidth,
+          height: window.innerHeight,
+          antialias: true,
+          transparent: false,
+          resolution: 1
+      });
+      let container = new PIXI.Container();
+      app.stage.addChild(container);
+
+
+      // create a video texture from a path
+      var texture = PIXI.Texture.fromVideo(video);
+      var texture = PIXI.Texture.fromImage("/scenes/untitled.jpg");
+
+      // Filter
+     // var displacementTexture = PIXI.Texture.fromImage("http://i.imgur.com/2yYayZk.png");
+      //var displacementFilter = new PIXI.DisplacementFilter(displacementTexture);
+
+      // create a new Sprite using the video texture (yes it's that easy)
+      var videoSprite = new PIXI.Sprite(texture);
+
+      // Stetch the fullscreen
+      videoSprite.width = app.screen.width;
+      videoSprite.height = app.screen.height;
+
+
+      let filter = new PIXI.filters.BlurFilter();
+      let noiseFilter = new PIXI.filters.NoiseFilter();
+      let colorMatrix = new PIXI.filters.ColorMatrixFilter();
+      filter.blur = 0.5;
+      noiseFilter.noise = 0.075;
+      colorMatrix.contrast(0.5);
+      videoSprite.filters=[noiseFilter];
+
+      var displacementSprite = PIXI.Sprite.fromImage('displace.png');
+      var displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+
+      app.stage.addChild(displacementSprite);
+
+      container.filters = [displacementFilter];
+
+
+      container.addChild(  videoSprite )
+      app.stage.addChild(createTitle());
+
+      // Animate
+      requestAnimationFrame(animate);
+
+        function animate() {
+            noiseFilter.seed = Math.random()
+            displacementSprite.x += 5;
+            displacementSprite.y += 5;
+            requestAnimationFrame(animate);
+            app.render(container);
+        }
+
+      document.body.appendChild(app.view);
+
+      function createTitle(){
+
+          var buttonEndTurn = new PIXI.Graphics();
+          buttonEndTurn.interactive = true;
+          var buttonText = new PIXI.Text("Praesent pretium".toUpperCase(),
+          {
+              fontFamily : 'Pathway Gothic One',
+              fontSize: "6vw",
+              fontWeight: "400",
+              letterSpacing: -2,
+              fill : "white",
+              align : 'center'
+          });
+          buttonText.anchor.x = 0.5;
+          buttonText.anchor.y = 0.5;
+          buttonText.x = app.screen.width/2;
+          buttonText.y = app.screen.height/2;
+          buttonEndTurn.addChild(buttonText);
+          return buttonEndTurn;
+      }
+
+    </script>
+</body>
+
+</html>

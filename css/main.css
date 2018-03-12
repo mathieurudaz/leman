@@ -1,0 +1,53 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300';
+
+.vqh-fontred{ color: #e30613; }
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    position: relative;
+    font-family: "Gotham SSm A", sans-serif;
+}
+
+body{
+    padding: 15px 0px;
+}
+
+.fadeimg-2, .fadeimg-3{
+  width: 100%;
+  top:0px;
+  left: 0px;
+  position: absolute;
+  opacity: 0.1;
+}
+
+/**
+ * D3 Graphs
+ */
+
+.line {
+  fill: none;
+  stroke: #dadada;
+  stroke-width: 4px;
+}
+
+.line-active{
+  fill: none;
+  stroke: #ffc000;
+  stroke-width: 4px;
+}
+
+.main-circle{
+    fill: #ffc000;
+}
+
+.circle{
+    fill: #ffc000;
+}
+
+
+/**
+ * Bootstrap override
+ */
+

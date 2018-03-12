@@ -1,0 +1,412 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/gotham-font.css">
+    <link rel="stylesheet" type="text/css" href="css/materialdesign-icons.css">
+    <style type="text/css">
+    /* Main block */
+    
+    .box {
+        font-family: "Arial";
+        font-size: 50px;
+        width: 100%;
+        height: 500px;
+        background-color: #f5f6f7;
+        text-align: center;
+        line-height: 500px;
+        margin-bottom: 15px;
+        position: relative;
+        display: block;
+
+        /** Prevent Scrollmagic IOS pinning bug **/
+        will-transform: translate;
+        transform: translate3d(0,0,0);
+        -webkit-transform: translate3d(0,0,0);
+    }
+    
+    #pin-1 {}
+    
+    #pin-2b {}
+    
+    #pin-3 {
+        background-color: white;
+    }
+    
+    .graph-line {
+        stroke: #999 !important;
+        stroke-width: 2;
+        stroke-dasharray: 2, 3;
+        stroke-linecap: butt;
+        shape-rendering: crispEdges;
+    }
+    
+    .graph-gridline {
+        stroke: #ddd;
+        stroke-dasharray: 1, 1;
+        shape-rendering: crispEdges;
+    }
+    
+    .tick line {
+        visibility: hidden;
+    }
+    
+    .grid .tick line {
+        stroke: #ddd;
+        stroke-dasharray: 1, 1;
+    }
+    
+    svg text {
+        fill: #b3b3b4;
+        font-size: 13px;
+        font-family: "Gotham SSm A", sans-serif;
+    }
+    
+    .domain {
+        visibility: hidden;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="box" id="pin-1">1</div>
+        <div class="box" id="pin-2">2</div>
+        <div class="box" id="pin-2b">2b</div>
+        <div class="box" id="pin-3">
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <div class="graph-container"></div>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="pin-4">4</div>
+        <div class="box" id="pin-5">5</div>
+        <div class="box" id="pin-6">6</div>
+        <div class="box" id="pin-7">7</div>
+        <div class="box" id="pin-8">
+            <div class="fadeimg-1">8</div>
+            <div class="fadeimg-2">8a</div>
+            <div class="fadeimg-3">8b</div>
+        </div>
+        <div class="box" id="pin-9">9</div>
+        <div class="box" id="pin-10">10</div>
+    </div>
+</body>
+<script src="scripts/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+<script src="scripts/animation.gsap.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.6/d3.js"></script>
+<script type="text/javascript">
+// https://ihatetomatoes.net/svg-scrolling-animation-triggered-scrollmagic/
+
+$(document).ready(function() {
+
+    // Initial blocks apparitions
+
+    /*var staggerTween = TweenMax.staggerTo(".box", .1, {
+        css: {
+            opacity: 1
+        },
+        ease: Linear.easeIn
+    }, .1);*/
+
+
+    /**
+     * Set ScrollMagic animations triggerd while scrolling
+     */
+
+    var count = 0;
+
+    function onRepeat() {
+        count++;
+        $("#pin-4").html(count);
+        TweenLite.set(
+            $("#pin-4"), {
+                backgroundColor: "hsl(" + Math.random() * 255 + ", 90%, 60%)"
+            }
+        );
+    }
+
+    var tween = TweenMax.to(
+        $("#pin-4"), 2, {
+            css: {
+                transform: "translate(-500px,0)"
+            },
+            repeat: -1,
+            yoyo: true,
+            onRepeat: onRepeat,
+            repeatDelay: 0.5,
+            ease: Linear.easeNone
+        }
+    );
+
+
+    // Set new ScrollMagic controller
+    var controller = new ScrollMagic.Controller();
+
+
+    /***
+     * ScrollMagic scenes
+     **/
+
+    // Sticked block
+    var galleryScene = new ScrollMagic.Scene({
+            duration: 900,
+            triggerElement: $("#pin-2").get(0),
+            triggerHook: "onCenter"
+        })
+        .setPin("#pin-2")
+        .addIndicators()
+        .addTo(controller);
+
+    // Animated block
+    var articlesScene = new ScrollMagic.Scene({
+            triggerElement: $("#pin-4").get(0),
+            triggerHook: 'onCenter',
+            duration:$("#pin-4").height()
+        })
+        .setTween(tween)
+        .addIndicators()
+        .addTo(controller);
+
+    // Animated graph
+    var graphScene = new ScrollMagic.Scene({
+            triggerElement: $("#pin-3").get(0),
+            triggerHook: 'onCenter',
+            reverse:false
+        })
+        .on('start', function() {
+            animateGraph();
+        })
+        .addIndicators()
+        .addTo(controller);
+
+    // Revealed image
+    var fadingScence = new ScrollMagic.Scene({
+            duration: 1600,
+            offset: $("#pin-8").height()/2,
+            triggerElement: $("#pin-8").get(0),
+            triggerHook: "onCenter"
+        })
+        .on('start', function(e) {
+            console.log(e);
+        })
+        .on('progress', function(e){
+            $(e.currentTarget.triggerElement()).find(".fadeimg-1").css({
+                opacity:1-e.progress
+            });
+            $(e.currentTarget.triggerElement()).find(".fadeimg-2").css({
+                opacity:e.progress
+            });
+            //console.log(e)
+        })
+        .setPin("#pin-8")
+        .addIndicators()
+        .addTo(controller);
+
+    /**
+     * Graph
+     */
+
+    var gdata = [
+        [10, 1987],
+        [32, 1990],
+        [54, 1995],
+        [22, 2000],
+        [27, 2002],
+        [34, 2006],
+        [25, 2009],
+        [65, 2015]
+    ];
+
+    // Define the graph container
+    var gcontainer = $(".graph-container");
+
+    // Set the dimensions and margins
+    var margin = {
+            top: 30,
+            right: 90,
+            bottom: 90,
+            left: 90
+        },
+        width = gcontainer.width() - margin.left - margin.right - 30,
+        height = 300 - margin.top - margin.bottom;
+
+    // Parse the date
+    var formatDate = d3.timeFormat("%Y");
+    var parseDate = d3.timeParse("%Y");
+
+    // Set the ranges
+    var x = d3.scaleTime().range([0, width]);
+    var y = d3.scaleLinear().range([height, 0]);
+
+    // Define the Axis
+    var xAxis = d3.axisBottom(x)
+        .ticks(5);
+    var yAxis = d3.axisLeft(y)
+        .ticks(5);
+
+    // Append the svg object to the page
+    var svg = d3.select(gcontainer.get(0)).append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // Scale the range of the data
+    x.domain(d3.extent([1987, 2015], function(d) {
+        return parseDate(d);
+    }));
+    y.domain(d3.extent([0, 90], function(d) {
+        return d;
+    }));
+
+    // Add the X Axis
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + (height + 20) + ")")
+        .call(xAxis);
+
+    // Add the Y Axis
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+    // Add the labels
+    svg.append("text")
+        .attr("y", -20)
+        .attr("x", width)
+        .attr("dy", ".71em")
+        .style("text-anchor", "end")
+        .text("Naissances");
+
+    // Add the line
+    var line = d3.line()
+        .x(function(d) {
+            return x(parseDate(d[1]));
+        })
+        .y(function(d) {
+            return y(d[0]);
+        });
+
+    // Manually add the gridline (Has to be done with TICKS)
+    svg.append("line")
+        .attr("class", "graph-line")
+        .attr("x1", 0)
+        .attr("y1", y(45))
+        .attr("x2", width)
+        .attr("y2", y(45));
+
+    svg.append("line")
+        .attr("class", "graph-gridline")
+        .attr("x1", 0)
+        .attr("y1", y(0))
+        .attr("x2", width)
+        .attr("y2", y(0));
+
+    svg.append("line")
+        .attr("class", "graph-gridline")
+        .attr("x1", 0)
+        .attr("y1", y(22.5))
+        .attr("x2", width)
+        .attr("y2", y(22.5));
+
+    svg.append("line")
+        .attr("class", "graph-gridline")
+        .attr("x1", 0)
+        .attr("y1", y(67.5))
+        .attr("x2", width)
+        .attr("y2", y(67.5));
+
+    svg.append("line")
+        .attr("class", "graph-gridline")
+        .attr("x1", 0)
+        .attr("y1", y(90))
+        .attr("x2", width)
+        .attr("y2", y(90));
+
+    // Add the line
+    svg.append("path")
+        .datum(gdata)
+        .attr("class", "line")
+        .attr("d", line);
+
+    // Add the line
+    var path = svg.append("path")
+        .datum(gdata)
+        .attr("class", "line-active")
+        .attr("d", line);
+
+    // Set the animation
+    var totalLength = path.node().getTotalLength();
+    path
+        .attr("stroke-dasharray", totalLength + " " + totalLength)
+        .attr("stroke-dashoffset", totalLength);
+
+    // Add the scatterplot
+    var circleGroups = svg.selectAll("dot")
+        .data(gdata)
+        .enter().append("circle")
+        .attr("class", "circle")
+        .attr("r", 5)
+        .attr("cx", function(d) {
+            return x(parseDate(d[1]));
+        })
+        .attr("cy", function(d) {
+            return y(d[0]);
+        });
+
+    // Set the main circle
+    var circle = svg.append("circle")
+        .attr("class", "main-circle")
+        .attr("r", 10)
+        .attr("transform", "translate(" + gdata[0] + ")");
+
+    function animateGraph(){
+        path
+            .attr("stroke-dasharray", totalLength + " " + totalLength)
+            .attr("stroke-dashoffset", totalLength)
+            .transition()
+            .duration(2000)
+            .ease(d3.easeLinear)
+            .attr("stroke-dashoffset", 0);
+
+        circle.attr("transform", "translate(" + gdata[0] + ")");
+        circle.transition()
+            .duration(2000)
+            .attrTween("transform", translateAlong(path.node()))
+            .ease(d3.easeLinear);
+    }
+
+    // Returns an attrTween for translating along the specified path element.
+    function translateAlong(path) {
+        var l = path.getTotalLength();
+        return function(d, i, a) {
+            return function(t) {
+                var p = path.getPointAtLength(t * l);
+                return "translate(" + p.x + "," + p.y + ")";
+            };
+        };
+    }
+
+    $("svg").on("click", function() {
+
+        animateGraph();
+
+    })
+
+});
+</script>
+
+</html>
