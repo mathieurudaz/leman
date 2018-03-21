@@ -3,114 +3,306 @@
 
 <head>
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Asul" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
     <style type="text/css">
       body, html{
         padding: 0px;
         margin: 0px;
+        height: 100%;
+        font-family: "Montserrat", sans-serif;
+      }
+      p{
+        font-size: 20px;
+        line-height: 2;
+      }
+      canvas{
+        position: fixed;
+        top:0px;
+        left: 0px;
+      }
+      .container_sp{
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
       }
     </style>
 </head>
 
 <body>
+
+      <nav class="navbar navbar-default navbar-fixed-top navfade">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="sr-only">Toggle navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="https://www.24heures.ch">
+                  </a>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.24heures.ch/extern/interactive_wch/insectes"><i class="mdi mdi-facebook"></i></a></li>
+                      <li><a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="http://twitter.com/intent/tweet?text=A vos insectes, prêts, dégustez! http://insectes.24heures.ch"><i class="mdi mdi-twitter"></i></a></li>
+                      <li><a href="mailto:?&amp;subject=24heures - A vos insectes, prêts, dégustez!&amp;body=Dès le 1er mai, les Suisses pourront légalement acheter et consommer trois insectes différents. Zoom dans nos assiettes. http://insectes.24heures.ch"><i class="mdi mdi-email"></i></a></li>
+                  </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container_sp" style="margin-top: 100%;">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>L'Hirondelle</h1>
+          <p>Fusce id felis a augue auctor dapibus vitae a purus. Donec semper risus orci, et dictum odio faucibus eu. Morbi vulputate sapien libero, quis vestibulum sapien interdum in.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container_sp">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h1>L'Hirondelle</h1>
+          <p>Fusce id felis a augue auctor dapibus vitae a purus. Donec semper risus orci, et dictum odio faucibus eu. Morbi vulputate sapien libero, quis vestibulum sapien interdum in.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
+    <script src="node_modules/pixi-filters/dist/pixi-filters.js"></script>
     <script type="text/javascript">
 
-      let type = "WebGL"
-      if (!PIXI.utils.isWebGLSupported()) {
-          type = "canvas"
-      }
 
-      var video = document.createElement("video");
+      var displacementSprite
+      var displacementFilter 
+      var displacementTextSprite 
+      var displacementTextFilter
+      var transitionActive = false;
+      var sceneId = 0;
+      var background
+      var filter = new PIXI.filters.BlurFilter();
+      var noiseFilter = new PIXI.filters.NoiseFilter();
+      var colorMatrix = new PIXI.filters.ColorMatrixFilter();
+      var motionBlur = new PIXI.filters.MotionBlurFilter();
+      var title
+
+      var app
+
+      var titles = [
+        "La petite mer des alpes",
+        "l'Hirondelle",
+        "le léman"
+      ]
+
+      $(document).ready(function(){
+
+      var width = $(window).width();
+      var height = $(window).height();
+
+      /*var video = document.createElement("video");
       video.preload = "auto";
       video.loop = true;
-      video.src = "leman2.mp4";
+      video.src = "leman2.mp4";*/
 
-      PIXI.utils.sayHello(type)
-
-      let app = new PIXI.Application({
-          width: window.innerWidth,
-          height: window.innerHeight,
+      app = new PIXI.Application({
+          width: width,
+          height: height,
           antialias: true,
           transparent: false,
-          resolution: 1
+          resolution: 1,
+          autoresize: true
       });
-      let container = new PIXI.Container();
-      app.stage.addChild(container);
+
+      let stage = new PIXI.Container();
+      background = new PIXI.Container();
+
+      //app.renderer.resize(width, height)
+      app.stage.addChild(background);
+      background.scale.x = 1;
+      background.scale.y = 1;
 
 
       // create a video texture from a path
-      var texture = PIXI.Texture.fromVideo(video);
-      var texture = PIXI.Texture.fromImage("/scenes/untitled.jpg");
+      //var texture = PIXI.Texture.fromVideo(video);
+
+      var sceneSprites = [
+        new PIXI.Sprite(PIXI.Texture.fromImage("/scenes/scene1b.jpg")),
+        new PIXI.Sprite(PIXI.Texture.fromImage("/scenes/scene1c.jpg"))
+      ]
 
       // Filter
      // var displacementTexture = PIXI.Texture.fromImage("http://i.imgur.com/2yYayZk.png");
       //var displacementFilter = new PIXI.DisplacementFilter(displacementTexture);
 
       // create a new Sprite using the video texture (yes it's that easy)
-      var videoSprite = new PIXI.Sprite(texture);
+      var sceneA = sceneSprites[0]
+      var sceneB = sceneSprites[1]
 
       // Stetch the fullscreen
-      videoSprite.width = app.screen.width;
-      videoSprite.height = app.screen.height;
+      sceneA.width = app.screen.width + 200;
+      sceneA.height = app.screen.height + 200;
+      sceneA.x = -100;
+      sceneA.y = -100;
 
+      sceneB.width = app.screen.width + 200;
+      sceneB.height = app.screen.height + 200;
+      sceneB.x = -100;
+      sceneB.y = app.screen.height-100;
 
-      let filter = new PIXI.filters.BlurFilter();
-      let noiseFilter = new PIXI.filters.NoiseFilter();
-      let colorMatrix = new PIXI.filters.ColorMatrixFilter();
+      filter = new PIXI.filters.BlurFilter();
+      noiseFilter = new PIXI.filters.NoiseFilter();
+      colorMatrix = new PIXI.filters.ColorMatrixFilter();
+      motionBlur = new PIXI.filters.MotionBlurFilter();
+      motionBlur.velocity = [100, 200] 
       filter.blur = 0.5;
       noiseFilter.noise = 0.075;
       colorMatrix.contrast(0.5);
-      videoSprite.filters=[noiseFilter];
 
-      var displacementSprite = PIXI.Sprite.fromImage('displace.png');
-      var displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+      displacementSprite = PIXI.Sprite.fromImage('displace.png');
+      displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+      displacementTextSprite = PIXI.Sprite.fromImage('displace.png');
+      displacementTextFilter = new PIXI.filters.DisplacementFilter(displacementTextSprite);
+
+      displacementFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
       app.stage.addChild(displacementSprite);
+      app.stage.addChild(displacementTextSprite);
 
-      container.filters = [displacementFilter];
+      background.filters = [displacementFilter, noiseFilter];
+
+      title = createTitle()
+
+      background.addChild(sceneA)
+      background.addChild(sceneB)
+      app.stage.addChild(title);
 
 
-      container.addChild(  videoSprite )
-      app.stage.addChild(createTitle());
+      title.on("click", function( ){
+        gotoScene((sceneId+1)%2)
+      })
 
-      // Animate
-      requestAnimationFrame(animate);
 
-        function animate() {
+
+      app.ticker.add(function(delta) {
+            var mouseposition = app.renderer.plugins.interaction.mouse.global;
+
+            sceneParallaxIt(mouseposition, background, -150);
+            parallaxIt(mouseposition, title, -50);
+
+            // Test
+            /*TweenMax.to(container, 1, {
+              rotation: 1
+            });*/
+
             noiseFilter.seed = Math.random()
             displacementSprite.x += 5;
             displacementSprite.y += 5;
-            requestAnimationFrame(animate);
-            app.render(container);
-        }
+            displacementTextSprite.x += 2;
+            displacementTextSprite.y += 2;
+      });
 
       document.body.appendChild(app.view);
+
+      });
 
       function createTitle(){
 
           var buttonEndTurn = new PIXI.Graphics();
           buttonEndTurn.interactive = true;
-          var buttonText = new PIXI.Text("Praesent pretium".toUpperCase(),
+          var buttonText = new PIXI.Text(titles[sceneId].toUpperCase(),
           {
-              fontFamily : 'Pathway Gothic One',
-              fontSize: "6vw",
+              fontFamily: 'Pathway Gothic One',
+              fontSize: "5vw",
               fontWeight: "400",
-              letterSpacing: -2,
-              fill : "white",
-              align : 'center'
+              letterSpacing: 6,
+              fill: "white",
+              align: 'center',
+              lineHeight: 2,
+              padding: 30
           });
           buttonText.anchor.x = 0.5;
           buttonText.anchor.y = 0.5;
           buttonText.x = app.screen.width/2;
           buttonText.y = app.screen.height/2;
           buttonEndTurn.addChild(buttonText);
+          buttonText.filters = [displacementTextFilter];
           return buttonEndTurn;
+      }
+
+      function sceneParallaxIt(e, target, movement) {
+        var $this = $("canvas");
+        var relX = e.x - $this.offset().left;
+        var relY = e.y - $this.offset().top;
+
+        if( !transitionActive ){
+          TweenMax.to(target, 1, {
+            x: (relX - $this.width() / 2) / $this.width() * movement,
+            y: ((relY - $this.height() / 2) / $this.height() * movement) - sceneId * app.screen.height
+          });
+        }
+      }
+
+      function gotoScene( id ){
+        sceneId = id
+        console.log( "Scene " + sceneId )
+        transitionActive = true;
+        background.filters = [motionBlur, displacementFilter, noiseFilter];
+        TweenMax.to(title, 1, {alpha:0,
+          onComplete: function(){
+            app.stage.removeChild(title)
+            title = createTitle()
+            title.alpha = 0;
+            title.on("click", function( ){
+              gotoScene((sceneId+1)%2)
+            })
+            app.stage.addChild(title)
+            TweenMax.to(title, 1, {alpha:1})
+          }})
+        TweenMax.to(background, 1, {
+          y: -app.screen.height,
+          onComplete: function(){
+            transitionActive = false;
+            background.filters = [displacementFilter, noiseFilter];
+            //TweenMax.to(title, 1, {alpha:1})
+          }
+        });
+      }
+
+      function parallaxIt(e, target, movement) {
+        var $this = $("canvas");
+        var relX = e.x - $this.offset().left;
+        var relY = e.y - $this.offset().top;
+
+        if( !transitionActive ){
+          TweenMax.to(target, 1, {
+            x: (relX - $this.width() / 2) / $this.width() * movement,
+            y: (relY - $this.height() / 2) / $this.height() * movement
+          });
+        }
       }
 
     </script>

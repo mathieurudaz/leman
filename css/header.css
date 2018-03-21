@@ -1,0 +1,55 @@
+.navbar .container{
+    border-left:0px;
+    border-right:0px;
+}
+
+.navbar-toggle {
+    border: none;
+}
+
+.navbar-default.navfade .navbar-toggle .icon-bar {
+    background-color: transparent;
+}
+
+.navbar-brand {
+    height: 50px;
+    background-image: url(../24h_logo_full_white.svg);
+    width: 200px;
+    background-size: auto 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.navbar-default.navfade {
+    background-color: transparent;
+    border:none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*transition: all 600ms ease-in;*/
+}
+
+.navbar-default.navfade .navbar-brand {
+    background-image: url(../24h_logo_full_white.svg);
+}
+
+.navbar-default.navfade .navbar-nav>li>a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar-default {
+    background-color: white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border: none;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.navbar-default .navbar-nav .mdi {
+    font-size: 20px;
+}
