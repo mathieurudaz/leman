@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+
+    <input type="range" id="skewx" min="-100" max="100">
+    <input type="range" id="skewy" min="-100" max="100">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
+    <script src="node_modules/pixi-filters/dist/pixi-filters.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script type="text/javascript">
+
+      var introText
+
+      $(document).ready(function(){
+
+      var width = $(window).width();
+      var height = $(window).height();
+
+      app = new PIXI.Application({
+          width: width,
+          height: height,
+          antialias: true,
+          transparent: false,
+          resolution: 1,
+          autoresize: true
+      });
+
+      document.body.appendChild(app.view)
+
+      introText = new PIXI.Text("Donec rhoncus suscipit arcu, vel vehicula elit bibendum vitae. Phasellus posuere semper odio, a tristique velit dignissim eu. Curabitur vel odio diam. Quisque vitae odio sit amet tortor luctus vestibulum. Pellentesque quis porttitor dolor.",
+          {
+              fontFamily: 'Montserrat',
+              fontSize: 20,
+              fontWeight: "300",
+              letterSpacing: 0,
+              fill: 0xffffff,
+              align: 'left',
+              lineHeight: 25,
+              padding: 30,
+              wordWrap: true,
+              wordWrapWidth: 350
+          });
+      //introText.anchor.x = 0.5;
+      //introText.anchor.y = 0.5;
+      introText.x = app.screen.width/2;
+      introText.y = app.screen.height/2;
+      introText.pivot.x = introText.width * 0.5;
+      introText.pivot.y = introText.height * 0.5;
+
+      app.stage.addChild(introText)
+
+      $("#skewx").on("input", function(e){
+        introText.skew.x = e.target.value/100
+      })
+
+      $("#skewy").on("input", function(e){
+        introText.skew.y = e.target.value/100
+      })
+
+      $("window").on("mousemove", function(){
+
+      })
+
+      app.ticker.add(function(delta) {
+
+        mx = app.renderer.plugins.interaction.mouse.global.x;
+        my = app.renderer.plugins.interaction.mouse.global.y;
+
+        introText.skew.x = (app.screen.height/2 - my) / 400
+        introText.skew.y = -(app.screen.width/2 - mx) / 400
+
+      })
+
+
+    });
+
+    </script>
+</body>
+
+</html>

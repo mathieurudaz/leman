@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Incidents</name>
+    <Style id="icon-1899-0288D1-normal">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-0288D1-highlight">
+      <IconStyle>
+        <color>ffd18802</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-0288D1">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-0288D1-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-0288D1-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-1899-4E342E-normal">
+      <IconStyle>
+        <color>ff2e344e</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-1899-4E342E-highlight">
+      <IconStyle>
+        <color>ff2e344e</color>
+        <scale>1</scale>
+        <Icon>
+          <href>http://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png</href>
+        </Icon>
+        <hotSpot x="16" xunits="pixels" y="32" yunits="insetPixels"/>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-1899-4E342E">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-1899-4E342E-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-1899-4E342E-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name><![CDATA[La course fatale de l'Helvétie
+]]></name>
+      <description><![CDATA[Avant la création de la CGN en 1873, les différentes compagnies de navigation se livraient une lutte acharnée. Le 1er août 1858, dans une course effrénée pour rattraper son retard, le bateau à vapeur l'Helvétie embroche alors un des radeaux appartenant à son concurrent l'Aigle et destiné à embarquer les passager. Bilan: 16 morts. Suite à cet accident, on va notamment ordonner la construction d'embarcadères.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.2436676,46.3796228,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Quatre wagons au fond du lac
+</name>
+      <description><![CDATA[Durant l'été 1859, le chantier ferroviaire de la "Ligne d'Italie" arrivait à bout touchant. Mais le 8 juin 1859, alors que la barque L'Industriel avait pour mission de transporter six wagons neufs et une plateforme tournante entre Morges et Le Bouveret, elle est prise dans une tempête et perd une partie de son chargement. Si aucune victime humaine n'est à déplorer, quatre wagons et la plateforme tournante reposent depuis par 300 mètres de profondeur.]]></description>
+      <styleUrl>#icon-1899-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          6.6810608,46.4662412,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Naufrage de l'Hirondelle
+]]></name>
+      <description><![CDATA[Le 10 juin 1862, alors que le temps est beau, le vapeur l'Hirondelle sur lequel ont embarqué près de 300 passagers passe trop près des côtes, au large de la Tour de Peilz. Sa coque accroche les fonds. Si l'avant de l'élégant vapeur coule immédiatement, son arrière restera croché sur les rochers. Tous les passagers peuvent par chance être secourus. Malgré deux mois de tentatives de renflouage, le navire coulera définitivement le 30 juillet lors d'une tempête nocturne.]]></description>
+      <styleUrl>#icon-1899-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          6.8595886,46.4468469,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Le naufrage du Nemo
+</name>
+      <description><![CDATA[Rien dans les archives de la presse ne relate de l'histoire du petit yacht à vapeur Le Nemo. Pourtant, depuis le 1er octobre 1875, son épave repose à quelque 300 mètres de profondeur. D'après les informations recueillies à ce jour par le Musée du Léman, ce bateau de 21 mètres appartenait à un certain William Marcet, médecin à Yvoire (F), qui aimait y embarquer ses amis et sa famille. Mais le 1er octobre 1875, mis à mal par un fort coup de vent, le yacht coule à pic. Par chance, le médecin, son fils et un mécanicien ayant eu le temps de monter dans un canot de sauvetage, aucune victime n'est à déplorer.]]></description>
+      <styleUrl>#icon-1899-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          6.6247559,46.4667142,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>La tempête fait dérailler un train
+</name>
+      <description><![CDATA[Le 20 février 1879, lors d'une grosse tempête, les vagues furieuses du lac ont déchaussé la culée d'un petit pont, qui a cédé au passage d'un train. Les deux derniers wagons, un fourgon postal avec deux employés et un wagon de voyageurs heureusement vide à ce moment-là, ont été précipités dans le lac. Aucun mort n'est à déplorer, mais les deux employés ont été blessés.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.743202,46.4875196,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Collision entre le Cygne et le Rhône
+</name>
+      <description><![CDATA[Dans la nuit du 23 novembre 1883, alors qu'une tempête agite violemment les eaux du Léman, le Cygne et le Rhône, ayant chacun dévié de leur route habituelle, entrent en collision, au large d'Ouchy. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombre dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage. Le bateau gît aujourd’hui par 300 mètres de profondeur.]]></description>
+      <styleUrl>#icon-1899-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          6.6329956,46.4965015,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Amerrissage d'urgence pour l'Ouragan
+]]></name>
+      <description><![CDATA[Le 11 août 1907, dans le cadre de l'inauguration d'une place à Lausanne, on demande à l'aérostier genevois Louis Kaeser de faire le show avec sa montgolfière au-dessus de la ville. Mais c'est sans compter avec le vent qui s'est soudainement mis à souffler, poussant le ballon jusqu'au milieu du lac, entre Lutry et Saint-Gingolph, où il a dû amerrir d'urgence. La trentaine de sauveteurs dépêchés sur place à la rame sont parvenus, après de longue heures de lutte, à ramener l'aérostier et son ballon à terre.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.7907532,46.4354935,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Naufrage du Fram
+</name>
+      <description><![CDATA[Le 28 octobre 1917, cinq sauveteurs appartenant à la section de Lutry de la Société internationale de Sauvetage du Léman (SISL) perdent la vie après le naufrage de leur canot pris dans la tempête au large de Rivaz. Le lendemain, l'embarcation sera retrouvée fracassée sur les rochers, juste au-dessous du Dezaley. Par contre aucune trace de l'équipage. Aucun corps ne sera retrouvé.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.7785646,46.4642315,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Tragique défaillance d'un hydravion
+]]></name>
+      <description><![CDATA[Le 2 août 1930, la toute jeune ligne commerciale d'hydravion entre Ouchy et Evian est frappée par un terrible accident qui fera trois morts, un jeune couple dont les corps n'ont jamais été retrouvés, ainsi qu'une touriste française décédée le lendemain à l'hôpital. Le pilote et le mécanicien s'en tireront par miracle. Cet accident mettra fin à ce mode de transport sur le lac.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.6208076,46.4947289,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Accident d'un avion Fokker
+]]></name>
+      <description><![CDATA[Le 14 août 1933, un avion militaire fait une chute inexpliquée dans lac, à proximité du débarcadère de Nyon. Son pilote, le premier Lieutenant Henri Urfer de Nyon, parti seul de Lausanne pour Genève, est tué sur le coup. Certains témoins diront avoir observé l'avion faire des virages brusques et voler à très basse altitude, avant de piquer du nez dans les eaux lémaniques.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.2501907,46.3729905,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Crash d'un Vampire
+]]></name>
+      <description><![CDATA[Le 26 septembre 1951, le sergent suisse Louis Berney perd la vie dans le crash, au large du Bouveret, de son avion de combat: un Vampire, premier modèle d'avion à réaction à sillonner le ciel helvétique. La météo du jour, le brouillard et les rafales de pluie ne sont certainement à ce douloureux accident qui endeuille l'armée suisse. Les restes de l'avion reposent par 210 mètres de profondeur. ]]></description>
+      <styleUrl>#icon-1899-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          6.8559838,46.3975021,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Naufrage de L'Aubonne
+]]></name>
+      <description><![CDATA[Le 12 mars 1963, le chaland l'Aubonne quitte le Bouveret pour Lausanne avec un chargement de ballast destiné au terrassement de l'Exposition Nationale de Lausanne. Surpris par des rafales de vent au large de la Tour-de-Peilz, le bateau décide apparemment de faire demi-tour avant d'être englouti par les flots. Les quatre hommes à son bord perdent la vie. Seul un corps est retrouvé. Aujourd'hui, l'épave de L'Aubonne repose par 190 mètres de profondeur.]]></description>
+      <styleUrl>#icon-1899-4E342E</styleUrl>
+      <Point>
+        <coordinates>
+          6.8225094,46.4145489,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Crash d'un avion Piper
+]]></name>
+      <description><![CDATA[Le 4 mai 1965, pris dans un orage, un avion de type "Piper" venu de Lucerne s'écrase au large de Rivaz. Les corps des deux occupants, deux frères lucernois, Fritz et Gottfried Ineichen n'ont jamais été retrouvés.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.7708397,46.4568997,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Naufrage de la Fraidieu
+</name>
+      <description><![CDATA[Le 18 août 1969, au large de Thonon (F),  l’épouvantable naufrage du petit bateau de plaisance la Fraidieu, fait 24 morts, dont 14 petites orphelines d’une colonie de vacances. Si on évoque des erreurs humaines (bateau surchargé et une fissure dans sa coque), c'est la bise se levant brusquement qui aurait eu raison de la petite embarcation prise au milieu de fortes vagues. ]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.4407349,46.3829386,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Crash d'un avion de tourisme
+]]></name>
+      <description><![CDATA[Le 2 mai 1965, à la suite d'une panne de moteur, un avion de tourisme pique du nez dans le Léman, au large d'Yvoire. Grâce à la présence de pêcheurs à cet endroit du lac, le pilote et ses trois passagers, tous de nationalité suisse, ont été immédiatement repêchés, sains et saufs.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.3274384,46.3829386,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Naufrage du Sainte-Odile
+</name>
+      <description><![CDATA[Le 8 août 1970, le naufrage du bateau français Sainte-Odile, pris dans une violente tempête au large d'Yvoire (F), fait sept victimes, surtout des personnes âgées.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.337738,46.3748855,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Crash d'un avion de tourisme
+]]></name>
+      <description><![CDATA[Le 13 mars 1975, un avion de tourisme qui devait se poser à l'aéroport de Cointrin disparaît des radars. C'est dans le Léman qu'il finit sa course, au large de Versoix. Un des passagers a été secouru blessé et en état de choc. Mais les le pilote et son épouse sont décédés.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.188736,46.2900199,0
+        </coordinates>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name><![CDATA[Crash nocturne d'un avion de tourisme
+]]></name>
+      <description><![CDATA[Le 18 juillet 1977, alors que la bise souffle sur le lac, un avion de tourisme et ses trois occupants plonge dans le lac, près de la plage d'Allaman. Il n'y a aucun survivant.]]></description>
+      <styleUrl>#icon-1899-0288D1</styleUrl>
+      <Point>
+        <coordinates>
+          6.4125824,46.4591465,0
+        </coordinates>
+      </Point>
+    </Placemark>
+  </Document>
+</kml>

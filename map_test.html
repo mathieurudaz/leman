@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
+    <script src="node_modules/pixi-filters/dist/pixi-filters.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script type="text/javascript">
+
+      var svgDebug = d3.select("body").append("svg")
+          .attr("style", "background-color:#f5f6f7;")
+          .attr("id", "map_debug")
+          .attr("width", 800)
+          .attr("height", 501);
+
+      var projection = d3.geoMercator();
+      var lemanBounds = [
+        [6.083, 46.150], // SW
+        [7.013, 46.552] // NE
+      ]
+      
+      var mapWidth = 800
+          mapHeight = mapWidth * 
+          (projection(lemanBounds[0])[1] - projection(lemanBounds[1])[1]) /
+          (projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0]);
+
+      projection
+          .scale(1)
+          .translate([0, 0]);
+
+      var b = [
+            projection(lemanBounds[0]), 
+            projection(lemanBounds[1])],
+          s = 1 / Math.max(
+            (b[1][0] - b[0][0]) / mapWidth,
+            (b[1][1] - b[0][1]) / mapHeight),
+          t = [
+            (mapWidth  - s * (b[1][0] + b[0][0])) / 2, 
+            (mapHeight - s * (b[1][1] + b[0][1])) / 2
+          ];
+
+      projection
+          .scale(s)
+          .translate(t);
+
+
+      var path = d3.geoPath()
+         .projection(projection)
+
+      d3.json("leman.topojson", function(error, vd) {
+          if (error) throw error;
+
+          // Add the geometries to the DEBUG map
+          svgDebug.append("path")
+              .datum(topojson.feature(vd, vd.objects.communes, function(a, b) { return a !== b; }))
+              .attr("fill", "transparent")
+              .attr("stroke", "#ff00ff")
+              .attr("d", path);
+      });
+
+    </script>
+</body>
+
+</html>
