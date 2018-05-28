@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
@@ -34,13 +35,21 @@
         opacity: 0.85;
         font-size: 20px;
         line-height: 1.75;
-        text-shadow: 0px 0px 4px rgba(255,255,255,0.6);
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: transparent;
+        text-shadow: 0px 0px 2px rgba(255,255,255,0.75);
       }
+
+      p.lettrine::first-letter {
+
+      }
+
       h2{
-        font-family: "Pathway Gothic One", sans-serif;
-        text-transform: uppercase;
-        text-shadow: 0px 0px 4px rgba(255,255,255,0.6);
+        font-family: "Poppins", sans-serif;
+        text-shadow: 0px 0px 2px rgba(255,255,255,0.75);
         opacity: 0.85;
+        color: transparent;
         font-size: 30px;
       }
       canvas{
@@ -111,11 +120,12 @@
       }
 
       .footer .mdi-navigation{
-        font-size: 8px;
+        font-size: 20px;
       }
 
       .footer .mdi-navigation.down{
         transform: rotate(180deg);
+        animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
       }
 
       .footer a{
@@ -134,7 +144,18 @@
         text-decoration: none;
       }
 
+      /* Intro paper*/
       #scene-1{
+        height: 200vh;
+      }
+
+      /* Video paper*/
+      #scene-3b{
+        height: 200vh;
+      }
+
+      /* Fraidieu paper*/
+      #scene-4{
         height: 200vh;
       }
 
@@ -154,6 +175,24 @@
         margin-top: 70px;
       }
 
+      .navbar a i{
+        color: white;
+        font-size: 20px;
+        margin-left: 6px;
+      }
+
+      @keyframes pulse-dot {
+      0% {
+        transform: scale(1) rotate(180deg);
+      }
+      50% {
+        transform: scale(0.5) rotate(180deg);
+      }
+      100% {
+        transform: scale(1) rotate(180deg);
+      }
+    }
+
     </style>
 </head>
 
@@ -162,32 +201,24 @@
       <nav class="navbar navbar-default navbar-fixed-top navfade">
         <div class="container">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-xs-6">
               <div class="navbar-header">
-                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                      <span class="sr-only">Toggle navigation</span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="https://www.24heures.ch">
-                  </a>
+                <a class="navbar-brand" href="https://www.24heures.ch"></a>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                  <ul class="nav navbar-nav navbar-right">
-                      <li><a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.24heures.ch/extern/interactive_wch/insectes"><i class="mdi mdi-facebook"></i></a></li>
-                      <li><a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="http://twitter.com/intent/tweet?text=A vos insectes, prêts, dégustez! http://insectes.24heures.ch"><i class="mdi mdi-twitter"></i></a></li>
-                      <li><a href="mailto:?&amp;subject=24heures - A vos insectes, prêts, dégustez!&amp;body=Dès le 1er mai, les Suisses pourront légalement acheter et consommer trois insectes différents. Zoom dans nos assiettes. http://insectes.24heures.ch"><i class="mdi mdi-email"></i></a></li>
-                  </ul>
-              </div>
+            <div class="col-xs-6 text-right">
+              <a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.24heures.ch/extern/interactive_wch/insectes"><i class="mdi mdi-facebook"></i></a>
+              <a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="http://twitter.com/intent/tweet?text=A vos insectes, prêts, dégustez! http://insectes.24heures.ch"><i class="mdi mdi-twitter"></i></a>
+              <a href="mailto:?&amp;subject=24heures - A vos insectes, prêts, dégustez!&amp;body=Dès le 1er mai, les Suisses pourront légalement acheter et consommer trois insectes différents. Zoom dans nos assiettes. http://insectes.24heures.ch"><i class="mdi mdi-email"></i></a>
             </div>
           </div>
         </div>
     </nav>
+    <div id="scene-0" class="container container_sp"">
 
-    <div id="scene-1" class="container container_sp" style="margin-top: 100vh;">
+    </div>
+
+    <div id="scene-1" class="container container_sp"">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
         </div>
@@ -199,8 +230,7 @@
     <div id="scene-3" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <p>Le 24 novembre 1883, la Feuille d’Avis de Lausanne noircit ses colonnes avec le récit d’un triste naufrage survenu la veille. Par une nuit de tempête où le vent soulève des vagues énormes, deux navires à vapeurs, le Cygne et le Rhône, ayant chacun dévié de leur route habituelle, entrent en collision. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombre dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage. Dernier vestige du drame, son épave repose aujourd’hui par 300 mètres de profondeur.</p>
-          <p>Cet accident est l’un des nombreux drames au coeur de l’exposition “Fantômes du Léman”, une exposition itinérante qui, après les Bains des Pâquis à Genève jusqu’au 13 mai, fera escale cet été à Saint-Gingolph avant de caboter d’une localité lémanique à l’autre en 2019. “Quand les gens se baignent ou naviguent sur le Léman, ils n’ont pas conscience de tout ce qu’il recèle”, raconte Philippe Constantin, coordinateur de l’Association d’usagers des Bains des Pâquis (AUBP), à l’origine du projet avec son collègue, Michel-Félix de Vidas, responsable du groupe d’animation culturelle de l’AUBP. Avant de continuer: “C’est pourquoi on a eu l’idée d’enquêter sur les mystères de notre lac, de faire remonter quelques fantômes à la surface et de monter cette exposition.”</p>
+          <p class="lettrine">Le 24 novembre 1883, la Feuille d’Avis de Lausanne noircit ses colonnes avec le récit d’un triste naufrage survenu la veille. Par une nuit de tempête où le vent soulève des vagues énormes, deux navires à vapeurs, le Cygne et le Rhône, ayant chacun dévié de leur route habituelle, entrent en collision. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombre dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage. Des passagers du Cygne, rescapés de la catastrophe, témoignent: “L’avant du Rhône plongea perpendiculairement dans le lac. On vit l’arrière se dresser comme une tour hors de l’eau, puis disparaître sous la quille même du Cygne. Le bateau avait coulé à pic au milieu d’un formidable tourbillon! Un seul cri s’était fait entendre, un cris sauvage, atroce. Un dernier bouillonnement de l’eau, puis plus rien.” Son épave repose aujourd’hui par 300 mètres de profondeur. (Lien externe sur la fiche détaillée de l’accident)</p>
         </div>
       </div>
     </div>
@@ -210,7 +240,8 @@
     <div id="scene-3c" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <p>Derrière ses airs lisses et romantique, le Léman cache <a href="#">bien des histoires méconnues</a> et oubliées aux conclusions parfois heureuses et cocasses mais également funestes. Des naufrages de bateaux piégés dans les tourbillons d’un lac déchaîné, au crash d’un hydravion pris dans une tempête soudaine, en passant par l’amerrissage forcé d’une montgolfière mise à mal par la bise, ou encore la présence mystérieuse de quatre wagons dormant à plus de 300 mètres de profondeur entre Ouchy et Lutry. “Le Léman peut être un lac très calme. Mais ce n’est pas un étang pour autant, relève Lionel Gauthier, conservateur du Musée du Léman à Nyon. Il peut parfois s’énerver et se montrer impitoyable.” Comme en août 1969, date de l’une des dernières grosses tragédie que le lac a connu, lorsque le bateau de plaisance la Fraidieu, surpris par la bise, avait fait naufrage au large de Thonon (F). Un drame au bilan particulièrement sévère puisqu’il a fait 24 morts, dont 14 petites orphelines d’une colonie de vacances qui ne savaient pas nager.</p>
+          <p>Des naufrages de bateaux piégés dans les tourbillons d’un lac déchaîné, au crash d’un hydravion pris dans une tempête soudaine, en passant par l’amerrissage forcé d’une montgolfière mise à mal par la bise, ou la présence étrange de wagons dormant à plus de 300 mètres de profondeur (Lien externe sur les drames dont il s’agit). Derrière ses airs lisses et romantiques, le Léman cache de nombreuses histoires oubliées ou méconnues aux conclusions parfois heureuses et cocasses mais souvent dramatiques. Autant de fantômes perdus dans des limbes que l’on pensait inaccessibles et qu’une exposition itinérante attendue du côté de Saint-Gingolph cet été se propose de remonter à la surface. (Lien externe sur l’expo)</p>
+          <p>“Le Léman peut être un lac très calme. Mais ce n’est pas un étang pour autant, confirme Lionel Gauthier, conservateur du Musée du Léman à Nyon. Il peut parfois s’énerver et se montrer impitoyable.” Il y a presque cinquante ans, le 18 août 1969, se jouait d’ailleurs au large de Thonon (F) l’une des tragédies les plus cruelles que le lac n’ait jamais connu. Par une journée ensoleillée mais venteuse, une cinquantaine de personnes, dont 25 petites orphelines d’une colonie de vacances, embarquent sur le petit bateau de plaisance la Fraidieu pour une petite croisière qui s’annonce plutôt bucoliques le long des côtes françaises. Mais à peine le port quitté, l’embarcation, chahutée par de grosses vagues, prend l’eau par l’arrière. Paniqués, les passagers sautent à l’eau. Vingt cinq d’entre eux y laisseront la vie, dont 14 petites filles de 11 à 14 ans. Deux pêcheurs interviennent pour leur porter secours. Parmi eux, Roland Condevaux âgé à l’époque de 25 ans. Son témoignage relaté dans la presse de l’époque fait froid dans le dos: “Dès que j’ai vu le navire s’enfoncer par l’arrière, j’ai mis le cap vers lui. J’ai hissé dans ma barque tous les corps qui me passaient sous la main. La première fois, j’ai ramené neuf personnes sur la rive. J’ai pratiqué la respiration artificielle à plusieurs d’entre elles. Au second voyage, j’ai ramené une femme inanimée, puis j’ai repêché encore deux fillettes”. (Lien externe sur la fiche détaillée de la catastrophe)</p>
         </div>
       </div>
     </div>
@@ -221,8 +252,8 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <h2>Une mer intérieure?</h2>
-          <p>La bise, le Bornan, le Joran, le Vaudaire… Il faut dire que, enchâssé entre les Alpes et le Jura, le Léman est balayé par une dizaine de vents différents évoluant au gré des saisons, mais aussi des heures de la journée. Des airs lémaniques rendant parfois sa traversée périlleuse. Même Eric Tabarly, célèbre navigateur français venu participé au Bol d’Or en 1991, l’avait convenu: “On m’avait dit qu’il était traître, mais je n’aurais jamais cru à ce point.” Certains n’hésitant d’ailleurs pas à le surnommer “La Petite mer des Alpes”.</p>
-          <p>“Je ne sais pas si on peut aller jusqu’à le comparer à une mer intérieure, relève Frédéric Glassey de Météonews. Mais une chose est sûre: le bassin lémanique est constituée d’une vaste étendue d’eau entourée de reliefs, vecteurs d’orages pouvant être localement violent.” Des coups de tabac soudains et difficiles à prévoir que redoutent les navigateurs.</p>
+          <p>La Bise, le Bornan, le Joran, le Vaudaire… Enchâssé entre les Alpes et le Jura, le Léman est balayé par une dizaine de vents différents évoluant au gré des saisons, mais aussi des heures de la journée. Des airs lémaniques rendant parfois sa traversée périlleuse. Même Eric Tabarly, célèbre navigateur français venu participé au Bol d’Or en 1991, l’avait reconnu: “On m’avait dit que le Léman était traître, mais je n’aurais jamais cru à ce point.” Certains n’hésitant d’ailleurs pas à le surnommer “La Petite mer des Alpes”.</p>
+          <p>“Je ne sais  pas si on peut aller jusqu’à dire que c’est une mer intérieure”, tempère Frédéric Glassey de Météonews. Mais une chose est sûre: le bassin lémanique est constituée d’une vaste étendue d’eau entourée de reliefs, vecteurs d’orages pouvant être localement violent.” Des coups de tabac difficiles à prévoir que redoutent les navigateurs les plus aguerris.</p>
         </div>
       </div>
     </div>
@@ -232,10 +263,9 @@
     <div id="scene-7" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <h2>Des erreurs humaines</h2>
-          <p>Mais Dame nature n’est pas seule responsable. Le fourvoiement des hommes est également à l’origine de nombreux drames. A l’instar du naufrage de l’Hirondelle le 10 juin 1862 au large de la Tour-de-Peilz, après que sa coque a touché, dans une manoeuvre maladroite, le fond rocheux, peu profonds à cet endroit-là. Si ses quelques 300 passagers ont pu tous être secourus, l’élégant navire à vapeur repose aujourd’hui à près de 60 mètres sous la surface.</p>
-          <p>Des accidents spectaculaires comme celui-ci sont de moins en moins fréquents sur le Léman. Motorisation des bateaux, moyens de communication plus efficaces, images satellite permettant de mieux prédire la météo, radars: depuis une cinquantaine d’années, le domaine de la navigation a connu une véritable révolution. “Il y a encore pas si longtemps, avant l’apparition de la radio, c’est à la fusée que les secours étaient appelés. Et ensuite, c’était à la rame que ces derniers intervenaient”, rappelle alors Michel Detrey, président de la Société internationale de sauvetage du Léman (SISL), dont toutes les sections régionales confondues sont intervenues près de 820 fois en 2017. “Aujourd’hui, quand on doit intervenir, on peut être au milieu de lac en moins 20 minutes. Et c’est généralement pour de petites pannes ou du premier secours. Mais plus pour des naufrages ou des grosses casses comme à l’époque.”</p>
-          <p>Sans compter qu’au fil des années et des tragédies, les règles de sécurité n’ont eu de cesse de s’affiner.  “A chaque fois, on a tiré des enseignements de ces événements, ce qui a aussi permis d’améliorer la sécurité sur le lac”, souligne Michel Detrey. A noter d’ailleurs que c’est après la dramatique collision du Rhône et du Cygne que la nécessité de structurer et de mutualiser le sauvetage sur le lac est apparue. D’où la création, le 6 juin 1885, de la SISL regroupant aujourd’hui 34 sections locales réparties entre le Valais, Vaud, Genève et la France. Cette vaste communauté de riverains se moquant des frontières est le témoin vivant d’une histoire et d’une solidarité nées du lac.</p>
+          <p>Mais Dame nature n’est pas seule responsable. Le fourvoiement des hommes est à l’origine également de bien des histoires malheureuses. A l’instar du naufrage de l’Hirondelle le 10 juin 1862 au large de la Tour-de-Peilz, après que sa coque a touché, dans une manoeuvre maladroite, les fonds rocheux, peu profonds à cet endroit-là. Si ses quelques 300 passagers ont pu tous être secourus sans encombre ou presque, l’élégant navire à vapeur n’a pas eu cette chance. Après de nombreuses tentatives de renflouage, l’Hirondelle alors échoué sur des rochers sombrera définitivement deux mois plus tard, victime d’une tempête nocturne. “Dans la journée de samedi, les travaux de sauvetage de l’Hirondelle avaient réussi à ramener le navire passablement hors de l’eau; malheureusement la nuit interrompit les travaux, une bourrasque survint et l’Hirondelle fut de nouveau complètement submergée. Elle a, dit-on, disparu complètement dans le lac”, écrit-on dans la Feuille d’Avis de Lausanne à l’époque. Son épave bien connue des plongeurs lacustres repose aujourd’hui à près de 60 mètres de profondeur. (Lien externe sur la fiche de l’accident)</p>
+          <p>Aujourd’hui, les catastrophes et les tragédies, le Léman en connaît de moins en moins. Motorisation des bateaux, moyens de communication plus efficaces, images satellite permettant de mieux prédire la météo: le domaine de la navigation a connu ces dernière décennies une véritable révolution. “Il y a encore pas si longtemps, avant l’apparition de la radio, c’est à la fusée que les secours étaient appelés. Et ensuite, c’était à la rame que ces derniers intervenaient”, rappelle alors Michel Detrey, président de la Société internationale de sauvetage du Léman (SISL), dont toutes les sections régionales confondues sont intervenues près de 820 fois en 2017.</p>
+          <p>Sans compter qu’au fil des années et des tragédies, les règles de sécurité n’ont eu de cesse de s’affiner.  “A chaque accidents, on a tiré des enseignements, ce qui a aussi aussi permis d’améliorer la sécurité sur le lac”, continue Michel Detrey. A noter d’ailleurs que c’est après la collision du Rhône et du Cygne que la nécessité de structurer et de mutualiser le sauvetage sur le lac est apparue. D’où la création, le 6 juin 1885, de la SISL regroupant aujourd’hui 34 sections locales réparties entre le Valais, Vaud, Genève et la France.</p>
         </div>
       </div>
     </div>
@@ -244,7 +274,7 @@
 
     <div id="scene-9" class="container container_sp">
       <div class="row">
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-md-offset-3" style="padding-bottom: 140px;">
           <h2>L’importance du travail de mémoire</h2>
           <p>Il y a des stèles commémoratives posées ça et là tout autour du lac en mémoire de certains naufrages. Il y a des articles de presse qui paraissent parfois lorsque c’est l’anniversaire d’un drame particulièrement marquant. Et il y a des passionnés qui montent ponctuellement des expositions sur l’un ou l’autre aspect de l’histoire lémanique, à l’instar de Philippe Constantin et Michel-Félix de Vidas de l’Association des usagers des Bains des Pâquis (AUBP) à Genève qui ont monté les “Fantômes du lac” attendu dans plusieurs localités du pourtour lémanique, dont Saint-Gingolph cet été.</p>
           <p>“Chaque catastrophe n’a pas son épave au fond du lac. Et les témoins ou rescapés ne sont souvent plus là pour nous en parler. D’où l’importance du travail de mémoire pour rappeler aux gens que notre lac peut être impitoyable.” Toutes ces initiatives enchantent Lionel Gauthier, conservateur du Musée du Léman à Nyon. Surtout que, malgré des projets d’agrandissement, le musée du Léman ne serait jamais être assez grand pour tout dire et tout montrer.</p>
@@ -255,25 +285,27 @@
     <div class="map_scene">
       <div class="map-infos container fluid">Infos</div>
       <div class="map-tooltip">Tooltip</div>
+      <div class="container all-events">
+      </div>
     </div>
 
     <div class="footer">
       <div class="container">
         <div class="row">
           <div class="col-xs-5 text-left">
-            <a class="menu-link" id="map-link" href="#">La carte des événements</a>
+            <a class="menu-link" id="map-link" href="#">La carte<span class="hidden-xs"> des événements</span></a>
           </div>
           <div class="col-xs-2 text-center">
-            <div class="mdi mdi-navigation up"></div>
-            <div class="pagination">1</div>
+            <!--<div class="mdi mdi-navigation up"></div>
+            <div class="pagination">1</div>-->
             <div class="mdi mdi-navigation down"></div>
           </div>
           <div class="col-xs-5 text-right">En savoir plus</div>
         </div>
       </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
@@ -289,14 +321,15 @@
       var displacementFilter 
       var displacementTextSprite 
       var displacementTextFilter
+      var displacementPaperSprite 
+      var displacementPaperFilter
+      var displacementFilterTransition
       var transitionActive = false;
       var depthTranstionActive = false;
-      var sceneId = 0;
-      var background, introContainer
+      var background
       var blurFilter = new PIXI.filters.BlurFilter();
+      var backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
       var noiseFilter = new PIXI.filters.NoiseFilter();
-      var colorMatrix = new PIXI.filters.ColorMatrixFilter();
-      var motionBlur = new PIXI.filters.MotionBlurFilter();
       var testBlur = new PIXI.filters.TiltShiftFilter();
       var title
       var depth
@@ -304,20 +337,17 @@
       var scenes, sceneSprites, introVideoSprite
       var pointerMask, pointerMaskTexture, pointerMaskSprite
       var parallaxOffset = 0
-      var introPaper
+      var introPaper, videoPaper
       var introPaperXOffset = introPaperYOffset = 0
+      var fraidieuPaperXOffset = fraidieuPaperYOffset = 0
+      var videoPaperXOffset = videoPaperYOffset = 0
+      //var fraidieuPhotoXOffset = fraidieuPhotoYOffset = 0
+
 
       function Scene(id, background){
         this.id = id;
         this.container = new PIXI.Container();
       }
-
-      var titles = [
-        "Les fantômes du Léman",
-        "le Rhône",
-        "le Brick",
-        "La Carte"
-      ]
 
       $(document).ready(function(){
 
@@ -333,12 +363,14 @@
         textWidth = 400
       }
 
+      // Load the intro video
       var video = document.createElement("video");
       video.preload = "auto";
       video.muted = true;
       video.loop = true;
       video.src = "./scenes/intro.mp4";
 
+      // Create the PIXI App
       app = new PIXI.Application({
           width: width,
           height: height,
@@ -349,18 +381,10 @@
       });
 
       background = new PIXI.Container();
-      introContainer = new PIXI.Container();
-
-      //app.renderer.resize(width, height)
+      //background.scale.x = 1;
+      //background.scale.y = 1;
       app.stage.addChild(background);
-      
-      background.scale.x = 1;
-      background.scale.y = 1;
-
-      introContainer.scale.x = 1;
-      introContainer.scale.y = 1;
-      introContainer.x = 0;
-      introContainer.y = (app.screen.height+100) + 9000;
+    
 
       // create a video texture from a path
       introVideoSprite = new PIXI.Sprite(PIXI.Texture.fromVideo(video));
@@ -378,63 +402,56 @@
 
       sceneSprites = [
         new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/intro_deep.jpg")),
-        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_1.jpg")),
-        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_2.jpg")),
-        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_3.jpg")),
-        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_4.jpg")),
+        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_1.jpg")), // 1 Rhône
+        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_2.jpg")), // 2 Background Video
+        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_3.jpg")), // 3 Background presse Frédieux
+        new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_4.jpg")), // 4 l'Hirondelle
         new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_5.jpg"))
       ]
 
-      //Create the intro image and text
-      var introVideo = new PIXI.Sprite(PIXI.Texture.fromImage("./video_intro.jpg"));
-      introVideo.x = app.screen.width/2 - 300;
-      introVideo.y = app.screen.height/2;
-      introVideo.pivot.x = introVideo.width * 0.5;
-      introVideo.pivot.y = introVideo.height * 0.5;
-      introVideo.interactive = true;
-      introVideo.buttonMode = true;
-      introVideo.defaultCursor = 'pointer';
-
-      var introText = new PIXI.Text("Donec rhoncus suscipit arcu, vel vehicula elit bibendum vitae. Phasellus posuere semper odio, a tristique velit dignissim eu. Curabitur vel odio diam. Quisque vitae odio sit amet tortor luctus vestibulum. Pellentesque quis porttitor dolor.",
-          {
-              fontFamily: 'Montserrat',
-              fontSize: 20,
-              fontWeight: "300",
-              letterSpacing: 0,
-              fill: 0xffffff,
-              align: 'center',
-              lineHeight: 25,
-              padding: 30,
-              wordWrap: true,
-              wordWrapWidth: textWidth
-          });
-      introText.anchor.x = 0.5;
-      introText.anchor.y = 0.5;
-      introText.x = app.screen.width/2;
-      introText.y = app.screen.height/2 + 200;
-      //introVideo.filters = [new PIXI.filters.BlurFilter(0.5)];
-
-      introContainer.addChild(introVideo)
-      //introContainer.addChild(introText)
-
       // Intro newspaper
-      introPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press.png"));
+      introPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-01.jpg"));
       introPaperXOffset = app.screen.width/2 - 150;
       introPaperYOffset = app.screen.height + 100;
       introPaper.pivot.x = introPaper.width * 0.5;
       introPaper.pivot.y = introPaper.height * 0.5;
 
+      // Video newspaper
+      videoPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-03.jpg"));
+      videoPaperXOffset = app.screen.width/2 - 150;
+      videoPaperYOffset = app.screen.height + 100;
+      videoPaper.pivot.x = videoPaper.width * 0.5;
+      videoPaper.pivot.y = videoPaper.height * 0.5;
+
+      // Fraidieu newspaper
+      fraidieuPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-02.jpg"));
+      fraidieuPaperXOffset = app.screen.width/2 - 150;
+      fraidieuPaperYOffset = app.screen.height + 100;
+      fraidieuPaper.pivot.x = fraidieuPaper.width * 0.5;
+      fraidieuPaper.pivot.y = fraidieuPaper.height * 0.5;
+
+      // Newspaper Fraidieu Photography
+      fraidieuPhoto = new PIXI.Sprite(PIXI.Texture.fromImage("./press-photo-2.jpg"));
+      fraidieuPhotoXOffset = app.screen.width/2 - 200;
+      fraidieuPhotoYOffset = app.screen.height + 100;
+      fraidieuPhoto.pivot.x = fraidieuPhoto.width * 0.5;
+      fraidieuPhoto.pivot.y = fraidieuPhoto.height * 0.5;
+
       // Create the map background
-      mapBackground = new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_4.jpg"))
+      mapBackground = new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_5.jpg"))
       mapBackground.width = app.screen.width + 200;
       mapBackground.height = app.screen.height + 200;
       mapBackground.x = -100;
       mapBackground.y = -100;
+      // TODO: BLUR
+      mapBackground.filters = [testBlur]
       scenes.map.addChild(mapBackground)
 
       // Create the map Sprite base
-      var mapSprite = new PIXI.Sprite(PIXI.Texture.fromImage("./map_background.jpg"))
-      scenes.map.addChild(mapSprite);
+      // var mapSprite = new PIXI.Sprite(PIXI.Texture.fromImage("./map_background.jpg"))
+      // mapSprite.width = app.screen.width
+      // mapSprite.height = app.screen.height
+      // scenes.map.addChild(mapSprite);
 
       // Create the map Sprite hover effect
       var mapSpritePointer = new PIXI.Sprite(PIXI.Texture.fromImage("./map_pointer_texture.jpg"))
@@ -455,7 +472,8 @@
 
       // Create the map container
       var mapContainer = new PIXI.Container();
-
+      mapContainer.scale.x = 1
+      mapContainer.scale.y = 1
 
       var projection = d3.geoMercator();
       var lemanBounds = [
@@ -468,14 +486,14 @@
 
       map.width = mapWidth;
       map.height = mapHeight;
-      map.x = 0;
-      map.y = 0; //app.view.height/2 - mapHeight/2;
+      map.x = (app.screen.width - mapWidth * .85) / 2;
+      map.y = (app.screen.height - mapHeight * .85) / 2;
       map.pivot.x = map.width/2
       map.pivot.y = map.height/2
-      map.scale.x = 1
-      map.scale.y = 1
+      map.scale.x = .85
+      map.scale.y = .85
 
-      /*map.beginFill(0xff00ff, 1);
+      /*map.beginFill(0xf5f6f7, 1);
       map.drawRect(0, 0, mapWidth, mapHeight);
       map.endFill();*/
 
@@ -498,18 +516,26 @@
           .scale(s)
           .translate(t);
 
+      // map.beginFill(0xff00ff, 0.2);
+      // map.drawRect(
+      //   projection(lemanBounds[0])[0],
+      //   projection(lemanBounds[0])[1], 
+      //   projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0],
+      //   projection(lemanBounds[1])[1] - projection(lemanBounds[0])[1]);
+      // map.endFill();
+
       var path = d3.geoPath()
          .projection(projection)
          .context(map);
 
-      d3.json("leman.topojson", function(error, leman) {
+      /*d3.json("leman_cor.topojson", function(error, leman) {
         if (error) throw error;
         map.beginFill(0xffffff, 0.2);
         path(topojson.mesh(leman));
         map.endFill();
 
         // Mask the lake base texture with the polygon of the lake
-        mapSprite.mask = map;
+        //mapSprite.mask = map;
         //pointerMask.mask = map;
 
         // Mask the pointer layer with the pointer mask
@@ -523,52 +549,71 @@
         scenes.map.addChild(pointerMaskSprite);
         //map.blendMode = PIXI.BLEND_MODES.DIFFERENCE;
 
+      });*/
 
-        var pointBlur = new PIXI.filters.BlurFilter();
-        pointBlur.blur = 2
+      // Load the points
 
-        var point = new PIXI.Graphics();
-        point.beginFill(0xffffff, 1);
-        point.drawCircle(0, 0, 10);
-        point.endFill();
+      var pointBlur = new PIXI.filters.BlurFilter();
+      pointBlur.blur = 2
 
-        d3.json("incidents.geojson", function(error, incidents) {
-          for(var i=0; i<incidents.features.length; i++){
-            let p = incidents.features[i].geometry.coordinates
-            let pointTexture = new PIXI.Texture(app.renderer.generateTexture(point));
-            let pointSprite = new PIXI.Sprite(pointTexture);
+      //var point = PIXI.Sprite(PIXI.Texture.fromImage("./cross.png"))
+      var point = new PIXI.Graphics();
+      point.beginFill(0xffffff, 1);
+      point.drawCircle(0, 0, 10);
+      point.endFill();
 
-            //console.log(incidents.features[i])
+      d3.json("incidents.geojson", function(error, incidents) {
+        for(var i=0; i<incidents.features.length; i++){
 
-            pointSprite.x = projection([p[0], p[1]])[0]
-            pointSprite.y = projection([p[0], p[1]])[1]
-            pointSprite.interactive = true
-            pointSprite.buttonMode = true
-            pointSprite.defaultCursor = 'pointer';
-            pointSprite.anchor.set(0.5)
-            pointSprite.filters = [pointBlur];
-            pointSprite.alpha = 0.75;
-            pointSprite.blendMode = PIXI.BLEND_MODES.ADD;
-
-            pointSprite.pointerover = function(f) {
-              return function(){
-                console.log(f)
-                this.alpha = 0.65;
-                this.scale.set(2, 2)
-                $(".map-tooltip").text(f.properties["Name"])
-              }
-            }(incidents.features[i])
-
-            pointSprite.pointerout = function(mouseData) {
-              this.alpha = 0.75;
-              this.scale.set(1, 1)
-            }
-
-            mapContainer.addChild(pointSprite)
+          // Grid
+          if(i%4 ==0){
+            var c = $("<div class='row' />")
           }
-        })
-      });
+          //c.append("<div class='col-md-3'>"+incidents.features[i].properties["Name"]+"</div>").appendTo(".all-events")
 
+          let p = incidents.features[i].geometry.coordinates
+          //let pointTexture = new PIXI.Texture(app.renderer.generateTexture(point));
+          let pointTexture = new PIXI.Texture(app.renderer.generateTexture(point));
+          let pointSprite = new PIXI.Sprite(pointTexture);
+
+          //console.log(incidents.features[i])
+
+          pointSprite.x = projection([p[0], p[1]])[0]*.85 + (app.screen.width - mapWidth * .85) / 2
+          pointSprite.y = projection([p[0], p[1]])[1]*.85 + (app.screen.height - mapHeight * .85) / 2
+
+          pointSprite.interactive = true
+          pointSprite.buttonMode = true
+          pointSprite.defaultCursor = 'pointer';
+          pointSprite.anchor.set(0.5)
+          pointSprite.filters = [pointBlur];
+          pointSprite.alpha = 0.75;
+          pointSprite.blendMode = PIXI.BLEND_MODES.ADD;
+
+          pointSprite.pointerover = function(f) {
+            return function(){
+              console.log(f)
+              this.alpha = 0.65;
+              this.scale.set(2, 2)
+              $(".map-tooltip").text(f.properties["Name"])
+            }
+          }(incidents.features[i])
+
+          pointSprite.pointerout = function(mouseData) {
+            this.alpha = 0.75;
+            this.scale.set(1, 1)
+          }
+
+          mapContainer.addChild(pointSprite)
+        }
+      })
+
+      mapLake = new PIXI.Sprite(PIXI.Texture.fromImage("./map_lake.png"));
+      mapLake.width = projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0];
+      mapLake.height = projection(lemanBounds[1])[1] - projection(lemanBounds[0])[1];
+      mapLake.x = projection(lemanBounds[0])[0];
+      mapLake.y = projection(lemanBounds[1])[1];
+
+      map.addChild(mapLake)
       mapContainer.addChild(map)
       scenes.map.addChild(mapContainer)
 
@@ -590,13 +635,13 @@
       sceneSprites[1].x = -100;
       sceneSprites[1].y = (app.screen.height+100) + 9000;
 
-      // Machin
+      // Background press Frédieux
       sceneSprites[2].width = app.screen.width + 200;
       sceneSprites[2].height = app.screen.height + 200;
       sceneSprites[2].x = -100;
       sceneSprites[2].y = (app.screen.height+100) + 9000;
 
-      // Truc
+      // Hirondelle
       sceneSprites[3].width = app.screen.width + 200;
       sceneSprites[3].height = app.screen.height + 200;
       sceneSprites[3].x = -100;
@@ -613,30 +658,58 @@
       sceneSprites[5].y = (app.screen.height+100) + 9000;
 
       blurFilter = new PIXI.filters.BlurFilter();
+      backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
       noiseFilter = new PIXI.filters.NoiseFilter();
-      colorMatrix = new PIXI.filters.ColorMatrixFilter();
-      motionBlur = new PIXI.filters.MotionBlurFilter();
-      motionBlur.velocity = [300, 100] 
       blurFilter.blur = 1;
+      backgroundBlurFilter.blur = 10
+      backgroundBlurFilter.gradientBlur = 200
       noiseFilter.noise = 0.075;
-      colorMatrix.contrast(0.5);
 
+      // Background and elements water effect
       displacementSprite = PIXI.Sprite.fromImage('displace.png');
       displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+      displacementFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      app.stage.addChild(displacementSprite);
+
+      // Same effect on titles but lighter
       displacementTextSprite = PIXI.Sprite.fromImage('displace.png');
       displacementTextFilter = new PIXI.filters.DisplacementFilter(displacementTextSprite);
-
-      displacementFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-
-      app.stage.addChild(displacementSprite);
+      displacementTextFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      //displacementTextFilter.scale = 1
       app.stage.addChild(displacementTextSprite);
 
-      background.filters = [displacementFilter, noiseFilter];
-      introPaper.filters = [displacementTextFilter, noiseFilter]
+      // Same effect on newspapers
+      displacementPaperSprite = PIXI.Sprite.fromImage('displace.png');
+      displacementPaperFilter = new PIXI.filters.DisplacementFilter(displacementPaperSprite);
+      displacementPaperFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      app.stage.addChild(displacementPaperSprite);
+
+      // Apply filters
+      background.filters = [displacementFilter, backgroundBlurFilter, noiseFilter];
+      introPaper.filters = [displacementPaperFilter, noiseFilter]
+      videoPaper.filters = [displacementPaperFilter, noiseFilter]
+      fraidieuPaper.filters = [displacementPaperFilter, noiseFilter]
       map.filters = [blurFilter];
 
-      title = createTitle()
-      text = createText()
+      // Main title
+      title = new PIXI.Graphics()
+      titleText = new PIXI.Text("Les fantômes du Léman".toUpperCase(), {
+          fontFamily: 'Pathway Gothic One',
+          fontSize: "4vw",
+          fontWeight: "400",
+          letterSpacing: 6,
+          fill: "white",
+          align: 'center',
+          lineHeight: 2,
+          padding: 30
+      });
+      titleText.anchor.x = 0.5;
+      titleText.anchor.y = 0.5;
+      titleText.alpha = 0.75
+      titleText.x = app.screen.width/2;
+      titleText.y = app.screen.height/2;
+      title.addChild(titleText)
+      app.stage.addChild(title);
 
       background.addChild(sceneSprites[0])
       background.addChild(sceneSprites[5])
@@ -647,9 +720,10 @@
       background.addChild(introVideoSprite)
       //background.addChild(map)
       //background.addChild(introVideo);
-      app.stage.addChild(title);
       scenes.map.x = 0;
       scenes.map.y = 0;
+      testBlur.blur = 10
+      testBlur.gradientBlur = 100
       scenes.map.filters = [noiseFilter, displacementTextFilter]
       //app.stage.addChild(scenes.map)
 
@@ -659,6 +733,7 @@
             v += 0.1
             var mouseposition = app.renderer.plugins.interaction.mouse.global;
 
+            // Background and titles parallax
             if(mouseposition.x >= 0 && mouseposition.x <= app.screen.width
               && mouseposition.y >= 0 && mouseposition.y <= app.screen.height){
               sceneParallaxIt(mouseposition, background, -150);
@@ -666,7 +741,11 @@
               parallaxIt(mouseposition, mapContainer, -50);
             }
 
-            // Floating movement based on combined sine waves
+            /**
+             * Floating movement based on combined sine waves
+             */
+
+            // Intro paper
             introPaper.y =
             - (Math.sin(v*0.1)*Math.sin(v*0.2)*50) + introPaperYOffset
             introPaper.x =
@@ -674,15 +753,26 @@
             introPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
             introPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
 
-            introVideo.y = - (Math.sin(v*0.1)*Math.sin(v*0.2)*50) + app.screen.height/2
-            introVideo.x = - (Math.sin(v*0.15)*Math.sin(v*0.3)*50) + app.screen.width/2 - introVideo.width/2
-            introVideo.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
-            introVideo.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
+            // Video paper
+            videoPaper.y =
+            - (Math.sin(v*0.1)*Math.sin(v*0.2)*50) + videoPaperYOffset
+            videoPaper.x =
+            - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)  + videoPaperXOffset
+            videoPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
+            videoPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
 
-            // Test
-            /*TweenMax.to(container, 1, {
-              rotation: 1
-            });*/
+            // Fraidieu paper
+            fraidieuPaper.y =
+            - (Math.sin(v*0.1)*Math.sin(v*0.2)*50) + fraidieuPaperYOffset
+            fraidieuPaper.x =
+            - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)  + fraidieuPaperXOffset
+            fraidieuPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
+            fraidieuPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
+
+            // Backround movement added to the parallax
+            TweenMax.to(background, 1, {
+              rotation: Math.sin(v*0.025)*Math.sin(v*0.05)/100
+            });
 
 
             //Mask pointer for the map
@@ -699,55 +789,13 @@
             displacementSprite.y += 5;
             displacementTextSprite.x += 2;
             displacementTextSprite.y += 2;
+            displacementPaperSprite.x += 2;
+            displacementPaperSprite.y += 2;
       });
 
       document.body.appendChild(app.view);
 
       });
-
-      function createText(){
-
-          var text = new PIXI.Text("Le 24 novembre 1883, la Feuille d’Avis de Lausanne noircit ses colonnes avec le récit d’un triste naufrage survenu la veille. Par une nuit de tempête où le vent soulève des vagues énormes, deux vapeurs, le Cygne et le Rhône, ayant chacun dévié de leur route habituelle, entrent en collision. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombre dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage.",
-          {
-              fontFamily: 'Montserrat',
-              fontSize: 20,
-              fontWeight: "400",
-              letterSpacing: 0,
-              fill: "white",
-              align: 'left',
-              lineHeight: 25,
-              padding: 30,
-              wordWrap: true,
-              wordWrapWidth: textWidth
-          });
-          text.anchor.x = 0.5;
-          text.anchor.y = 0.5;
-          text.x = app.screen.width/2;
-          text.y = app.screen.height/2;
-          return text;
-      }
-
-      function createTitle(text){
-          var buttonEndTurn = new PIXI.Graphics();
-          var buttonText = new PIXI.Text(titles[sceneId].toUpperCase(),
-          {
-              fontFamily: 'Pathway Gothic One',
-              fontSize: "5.5vw",
-              fontWeight: "400",
-              letterSpacing: 6,
-              fill: "white",
-              align: 'center',
-              lineHeight: 2,
-              padding: 30
-          });
-          buttonText.anchor.x = 0.5;
-          buttonText.anchor.y = 0.5;
-          buttonText.alpha = 0.75
-          buttonText.x = app.screen.width/2;
-          buttonText.y = app.screen.height/2;
-          buttonEndTurn.addChild(buttonText);
-          return buttonEndTurn;
-      }
 
       function createWreckTitle(title, date){
         var buttonEndTurn = new PIXI.Graphics();
@@ -817,79 +865,126 @@
         }
       }
 
+
+      /**
+       * SCENES
+       */
+
       // Initialize ScrollMagic
       var scrollController = new ScrollMagic.Controller();
-       
-      // Create Scene #1 (Scroll to dive and newspaper apparition)
+      
+
+      /**
+       * Scene #1 (Scroll to dive and newspaper apparition)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-1",
           triggerHook: 0.99,
           duration: $("#scene-1").height()
       })
         .on("progress", function(e){
-          //depth.setText(Math.round(e.progress*300) + "M");
           introPaperYOffset = app.screen.height - (e.progress * 1000)
         })
-        .on("enter", function(){
-          sceneId = 1;
+        .on("enter", function(e){
           transitionActive = true;
 
-        /*depth = new PIXI.Text(5 + "m", {
-            fontFamily: 'Pathway Gothic One',
-            fontSize: "5vw",
-            fontWeight: "400",
-            letterSpacing: 6,
-            fill: "white",
-            align: 'center',
-            lineHeight: 2,
-            padding: 30
-        });
-        depth.anchor.x = 0.5;
-        depth.anchor.y = 0.5;
-        depth.x = app.screen.width/2;
-        depth.y = app.screen.height/2;*/
+          console.log("Start diving")
 
-        // Fade out the title
-        TweenMax.to(title, 0.5, {alpha:0,
-          onComplete: function(){
-            app.stage.removeChild(title)
-            //depth.alpha = 0;
-            app.stage.addChild(introPaper)
-            //app.stage.addChild(depth)
-            //depth.filters = [displacementTextFilter];
-            //TweenMax.to(depth, 1, {alpha:1})
-          }})
+          // Prevent scrolling during the animation 
+          $("body").css({"overflow": "hidden"})
 
-        // Move the background
-        TweenMax.to(background, 1, {
-          ease: Circ.easeOut,
-          y: -sceneSprites[0].height/2,
-          onComplete: function(){
-            parallaxOffset =  sceneSprites[0].height/2
-            transitionActive = false;
-            background.filters = [displacementFilter, noiseFilter];
-          }
-        });
+          // Fade out the title
+          TweenMax.to(title, 0.25, {
+            ease: Circ.easeOut,
+            alpha: 0,
+            onComplete: function() { 
+              // Remove the title
+              app.stage.removeChild(title);
+            }
+          });
+
+          // Move the background
+          TweenMax.to(background, 1, {
+            ease: Circ.easeOut,
+            y: -sceneSprites[0].height/2,
+            onComplete: function(){
+
+              // Activate the parallax
+              parallaxOffset =  sceneSprites[0].height/2
+              transitionActive = false;
+
+              // Allow srolling again
+              $("body").css({"overflow": "auto"})
+
+              // Add the intro paper
+              introPaper.alpha = 0;
+              app.stage.addChild(introPaper)
+              TweenMax.to(introPaper, 0.75, {alpha:1})
+            }
+          });
 
       })
+        .on('leave', function(e){
+            if(e.scrollDirection == "REVERSE"){
+
+              console.log("Start go back up to the surface")
+
+              // Fade out the intro paper
+              TweenMax.to(introPaper, 0, {
+                ease: Circ.easeOut,
+                alpha: 0,
+                onComplete: function() { 
+                  // Remove the intro paper
+                  app.stage.removeChild(introPaper);
+                }
+              });
+
+              // Prevent scrolling during the animation 
+              $("body").css({"overflow": "hidden"})
+
+              app.stage.addChild(title);
+              
+              // Fade out the title
+              TweenMax.to(title, 0.25, {
+                ease: Circ.easeOut,
+                alpha: 1
+              });
+
+              // Move the background
+              TweenMax.to(background, 1, {
+                ease: Circ.easeOut,
+                y: 0,
+                onComplete: function(){
+                  // Activate the parallax
+                  parallaxOffset =  sceneSprites[0].height/2
+                  transitionActive = false;
+
+                  // Allow srolling again
+                  $("body").css({"overflow": "auto"})
+                }
+              });
+          }
+        })
       .addIndicators({name: "Dive", colorTrigger:"#ff00ff", colorStart:"#ff00ff"})
       .addTo(scrollController);
 
-      // Create scene #2 (Rhône)
+
+      /**
+       * Create scene #2 (Rhône)
+       **/
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-2",
           triggerHook: 0.99
       })
       .on("enter", function(){
-        sceneId = 2;
         transitionActive = true;
 
-        // Fade out the depth counter
-        /*TweenMax.to(depth, 0.75, {alpha:0,
-          onComplete: function(){
-            app.stage.removeChild(depth)
-          }})*/
+        // Prevent scrolling during the animation 
+        $("body").css({"overflow": "hidden"})
 
+        // Fade out the newspaper
         TweenMax.to(introPaper, 0.75, {alpha:0,
           onComplete: function(){
             app.stage.removeChild(introPaper)
@@ -901,14 +996,17 @@
           y: -sceneSprites[0].height -introVideoSprite.height,
           onComplete: function(){
             console.log("animation complete")
+
+            // Allow srolling again
+            $("body").css({"overflow": "auto"})
+
             parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
             transitionActive = false;
-            background.filters = [displacementFilter, noiseFilter];
             title = createWreckTitle("Le Rhône", "23 novembre 1883")
             title.alpha = 0;
             app.stage.addChild(title)
             title.filters = [displacementTextFilter];
-            TweenMax.to(title, 1, {alpha:0.75})
+            TweenMax.to(title, 1, {alpha:0.55})
           }
         });
 
@@ -916,7 +1014,11 @@
       .addIndicators({name: "Rhône", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
 
-      // Create scene #3 (Text)
+
+      /**
+       * Create scene #3 (Text)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-3",
           triggerHook: 0.75
@@ -928,130 +1030,187 @@
             app.stage.removeChild(title)
           }})
 
-        // TODO: Add blur filter
-
+        // Add blur filter
+        TweenMax.to(backgroundBlurFilter, 0.75, {
+          blur:20,
+          gradientBlur:0,
+          onComplete: function(){
+            app.stage.removeChild(title)
+          }})
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
 
-      // Create scene #3b (Video)
+
+      /**
+       * Create scene #3b (Video paper)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-3b",
-          triggerHook: 0.25
+          triggerHook: 0.55,
+          duration: $("#scene-3b").height()
+      })
+      .on("progress", function(e){
+        videoPaperYOffset = app.screen.height - (e.progress * 1000)
       })
       .on("enter", function(){
+
         transitionActive = true;
+
+        // Change blur filter
+        TweenMax.to(backgroundBlurFilter, 0.75, {
+          blur:10,
+          gradientBlur:100,
+          onComplete: function(){
+            app.stage.removeChild(title)
+          }})
+
+        console.log("Background transition")
         console.log("Show video")
-        introContainer.alpha = 0;
-        background.addChild(introContainer)
-        TweenMax.to(introContainer, 0.75, {alpha:1})
+        videoPaper.opacity = 1
+        app.stage.addChild(videoPaper)
+        //parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
+        //transitionActive = false;
+        
+        // Background transition
+        var baseTimeline = new TimelineMax({
+          onComplete: function () {
+            transitionActive = false;     
+           }
+        });
+        
+        baseTimeline.clear();
+        
+        if ( baseTimeline.isActive() ) {
+          return;
+        }        
+        baseTimeline
+        .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
+        .to(sceneSprites[1], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
+        .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
       })
       .addIndicators({name: "Video", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
 
-      // Create scene #3c (Text)
+
+      /**
+       * Create scene #3c (Text)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-3c",
           triggerHook: 0.75
       })
       .on("enter", function(){
         // Fade out the title
-        TweenMax.to(introContainer, 0.75, {alpha:0,
+        TweenMax.to(videoPaper, 0.75, {alpha:0,
           onComplete: function(){
-            background.removeChild(introContainer)
+            app.stage.removeChild(videoPaper)
           }})
-
-        // TODO: Add blur filter
-
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
 
-      // Create scene #4 (Hirondelle)
+
+      /**
+       * Create scene #4 (Fraidieu paper)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-4",
-          triggerHook: 0.25
+          triggerHook: 0.25,
+          duration: $("#scene-4").height()
+      })
+      .on("progress", function(e){
+        fraidieuPaperYOffset = app.screen.height - (e.progress * 1000)
       })
       .on("enter", function(){
-        sceneId = 2;
         transitionActive = true;
 
-        console.log("Fade and blur the scene.")
+        console.log("Background transition")
 
-        sceneSprites[1].filters = [motionBlur]
+        console.log("Show press")
+        fraidieuPaper.opacity = 1
+        app.stage.addChild(fraidieuPaper)
+        parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
+        transitionActive = false;
 
-        // Move the background
-        TweenMax.to(sceneSprites[1], 2, {
-          ease: Circ.easeOut,
-          x: -app.screen.width,
-          alpha: 0,
-          onComplete: function(){
+        var baseTimeline = new TimelineMax({
+          onComplete: function () {
             console.log("animation complete")
-            //parallaxOffset =  sceneSprites[0].height + introVideoSprite.height + sceneSprites[1].height
-            parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
             transitionActive = false;
-            background.filters = [displacementFilter, noiseFilter];
-            title = createWreckTitle("L'Hirondelle", "23 novembre 1883")
-            title.alpha = 0;
-            app.stage.addChild(title)
-            title.filters = [displacementTextFilter];
-            TweenMax.to(title, 1, {alpha:0.75})
           }
         });
+        baseTimeline.clear();
+        if(baseTimeline.isActive()) { return; }        
+        baseTimeline
+          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
+          .to(sceneSprites[2], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
+          .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
+
       })
-      .addIndicators({name: "Hirondelle", colorTrigger:"#ffff00", colorStart:"#ffff00"})
+      .addIndicators({name: "Article de presse Frédieux", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
 
-      // Create scene #5 (Text)
+
+      /**
+       * Create scene #5 (Text)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-5",
           triggerHook: 0.75
       })
       .on("enter", function(){
-        // Fade out the title
-        TweenMax.to(title, 0.75, {alpha:0,
+        // Fade out the paper
+        TweenMax.to(fraidieuPaper, 0.75, {alpha:0,
           onComplete: function(){
-            app.stage.removeChild(title)
+            app.stage.removeChild(fraidieuPaper)
           }})
-
-        // TODO: Add blur filter
-
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
 
-      // Create scene #6 (Wagons)
+
+      /**
+       * Create scene #6 (l'Hirondelle)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-6",
           triggerHook: 0.25
       })
       .on("enter", function(){
-        sceneId = 2;
         transitionActive = true;
 
-        // Move the background
-        TweenMax.to(sceneSprites[2], 2, {
-          ease: Circ.easeOut,
-          x: -app.screen.width,
-          alpha: 0,
-          onComplete: function(){
+        title = createWreckTitle("l'Hirondelle", "10 juin 1862")
+        title.alpha = 0;
+        app.stage.addChild(title)
+        title.filters = [displacementTextFilter];
+        TweenMax.to(title, 1, {alpha:0.75})
+
+        var baseTimeline = new TimelineMax({
+          onComplete: function () {
             console.log("animation complete")
-            //parallaxOffset =  sceneSprites[0].height + introVideoSprite.height + sceneSprites[1].height + sceneSprites[2].height
-            parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
             transitionActive = false;
-            background.filters = [displacementFilter, noiseFilter];
-            title = createWreckTitle("Les Wagons", "23 novembre 1883")
-            title.alpha = 0;
-            app.stage.addChild(title)
-            title.filters = [displacementTextFilter];
-            TweenMax.to(title, 1, {alpha:0.75})
           }
         });
+        baseTimeline.clear();
+        if(baseTimeline.isActive()) { return; }        
+        baseTimeline
+          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
+          .to(sceneSprites[3], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
+          .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
       })
-      .addIndicators({name: "Wagons", colorTrigger:"#ffff00", colorStart:"#ffff00"})
+      .addIndicators({name: "l'Hirondelle", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
 
-      // Create scene #7 (Text)
+
+      /**
+       * Create scene #7 (Text)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-7",
           triggerHook: 0.75
@@ -1062,33 +1221,26 @@
           onComplete: function(){
             app.stage.removeChild(title)
           }})
-
-        // TODO: Add blur filter
-
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
 
-      // Create scene #8 (Wreck)
+
+      /**
+       * Create scene #8 (Wreck)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-8",
           triggerHook: 0.25
       })
       .on("enter", function(){
-        sceneId = 3;
         transitionActive = true;
 
-        // Move the background
-        TweenMax.to(sceneSprites[3], 2, {
-          ease: Circ.easeOut,
-          x: -app.screen.width,
-          alpha: 0,
-          onComplete: function(){
+        var baseTimeline = new TimelineMax({
+          onComplete: function () {
             console.log("animation complete")
-            //parallaxOffset =  sceneSprites[0].height + introVideoSprite.height + sceneSprites[1].height + sceneSprites[2].height
-            parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
             transitionActive = false;
-            background.filters = [displacementFilter, noiseFilter];
             title = createWreckTitle("Une épave de bateau", "23 novembre 1883")
             title.alpha = 0;
             app.stage.addChild(title)
@@ -1096,11 +1248,21 @@
             TweenMax.to(title, 1, {alpha:0.75})
           }
         });
+        baseTimeline.clear();
+        if(baseTimeline.isActive()) { return; }        
+        baseTimeline
+          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
+          .to(sceneSprites[4], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
+          .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
       })
       .addIndicators({name: "Wreck", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
 
-      // Create scene #9 (Text)
+
+      /**
+       * Create scene #9 (Text)
+       */
+
       new ScrollMagic.Scene({
           triggerElement: "#scene-9",
           triggerHook: 0.75
@@ -1111,18 +1273,20 @@
           onComplete: function(){
             app.stage.removeChild(title)
           }})
-
-        // TODO: Add blur filter
-
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
 
-      //$('#scene-3').tilt({maxTilt:10})
-
       $('#map-link').on('click', function(){
         app.stage.addChild(scenes.map)
         $(".map_scene").show();
+        $(".container_sp").css({zIndex:0})
+      })
+
+      $(window).resize(function(){
+        introVideoSprite.width = app.renderer.width + 200;
+        introVideoSprite.height = app.renderer.height + 200;
+        app.renderer.resize(window.innerWidth, window.innerHeight)
       })
 
     </script>
