@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
+    <style type="text/css">
+      body, html{
+        -webkit-font-smoothing: antialiased;
+        padding: 0px;
+        margin: 0px;
+        height: 100%;
+        font-family: "Montserrat", sans-serif;
+        background-color: #252525;
+      }
+      p a{
+        color: inherit;
+        text-decoration: underline;
+      }
+      a:active, a:hover, a:focus{
+        color: inherit;
+      }
+      p{
+        opacity: 0.85;
+        font-size: 20px;
+        line-height: 1.75;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: transparent;
+        text-shadow: 0px 0px 2px rgba(255,255,255,0.75);
+      }
+
+      p.lettrine::first-letter {
+
+      }
+
+      .videoWrapper {
+          height: 0;
+          overflow: hidden;
+          padding-bottom: 52.35%;
+          padding-top: 30px;
+          position: relative;
+          margin-top: 40px;
+      }
+
+      .videoWrapper iframe {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+      }
+
+      #video{
+        position: fixed;
+        z-index: 99;
+        top:0px;
+        bottom: 0px;
+        left:0px;
+        right: 0px;
+      }
+
+      h2{
+        font-family: "Poppins", sans-serif;
+        text-shadow: 0px 0px 2px rgba(255,255,255,0.75);
+        opacity: 0.85;
+        color: transparent;
+        font-size: 30px;
+      }
+      canvas{
+        position: relative;
+        top:0px;
+        left: 0px;
+      }
+      .container_sp{
+        position: relative;
+        z-index: 1;
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+      }
+
+      .footer{
+        height: 90px;
+        position: fixed;
+        z-index: 2;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        color: white;
+        font-family: "Pathway Gothic One", sans-serif;
+        text-transform: uppercase;
+        font-size: 20px;
+        line-height: 1;
+      }
+
+      .footer > div{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      .footer > div > div{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+      }
+
+      .footer > div > div > div{
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+      }
+
+      .footer .pagination{
+        font-size: 30px;
+        line-height: 0px;
+      }
+
+      .footer .mdi-navigation{
+        font-size: 20px;
+      }
+
+      .footer .mdi-navigation.down{
+        transform: rotate(180deg);
+        animation: pulse-dot 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
+      }
+
+      .footer a{
+        display: inline-block;
+      }
+      .footer a:active, .footer a:hover, .footer a:focus{
+        text-decoration: none;
+      }
+
+      .menu-link{
+        color: white;
+      }
+
+      .menu-link:hover{
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Intro paper*/
+      #scene-1{
+        height: 200vh;
+      }
+
+      /* Video paper*/
+      #scene-3b{
+        height: 200vh;
+      }
+
+      /* Fraidieu paper*/
+      #scene-4{
+        height: 200vh;
+      }
+
+      .map_scene{
+        position: relative;
+        color: rgba(255,255,255,0.65);
+      }
+
+      .map-infos{
+        margin-top: 70px;
+      }
+
+      .map-tooltip h2{
+        font-family: "Pathway Gothic one";
+        text-transform: uppercase;
+      }
+
+      .map-description{
+        position: fixed;
+        min-height: 100%;
+        left: 0px;
+        right: 0px;
+        min-height: 100vh;
+        background-color: black;
+        z-index: 999;
+        display: none;
+        transform: translateY(-100vh);
+      }
+
+      .map-desription.visible{
+        display: block;
+        transform: translateY(0vh);
+      }
+
+      .all-events h2{
+        font-family: "Pathway Gothic one";
+        text-transform: uppercase;
+      }
+
+      .all-events p{
+        font-size: 14px;
+        opacity: 0.85;
+        text-shadow: none;
+        color: #ffffff;
+      }
+
+      .navbar a i{
+        color: white;
+        font-size: 20px;
+        margin-left: 20px;
+      }
+
+      @keyframes pulse-dot {
+      0% {
+        transform: scale(1) rotate(180deg);
+      }
+      50% {
+        transform: scale(0.5) rotate(180deg);
+      }
+      100% {
+        transform: scale(1) rotate(180deg);
+      }
+    }
+
+    </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top navfade">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="https://www.24heures.ch"></a>
+          </div>
+        </div>
+        <div class="col-xs-6 text-right" style="line-height:50px;">
+          <a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.24heures.ch/extern/interactive_wch/insectes"><i class="mdi mdi-facebook"></i></a>
+          <a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="http://twitter.com/intent/tweet?text=A vos insectes, prêts, dégustez! http://insectes.24heures.ch"><i class="mdi mdi-twitter"></i></a>
+          <a href="mailto:?&amp;subject=24heures - A vos insectes, prêts, dégustez!&amp;body=Dès le 1er mai, les Suisses pourront légalement acheter et consommer trois insectes différents. Zoom dans nos assiettes. http://insectes.24heures.ch"><i class="mdi mdi-email"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="map-description">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-left">
+          <h2>Michel-Félix de Vidas</h2>
+          <p>L’idée a germé il y trois ans, lorsque Michel-Félix de Vidas a accès aux vidéos des explorations des fonds lémaniques menées en 2011 par les deux sous-marins russes MIR.</p>
+        </div>
+      </div>
+  </div>
+
+  <div class="map_scene">
+    <div class="container all-events">
+      <div class='row'>
+        <div class='col-md-offset-2 col-md-4'></div>
+        <div class='col-md-4'></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-5 text-left">
+          <a class="menu-link" id="map-link" href="index.html">‹ Retour</a>
+        </div>
+        <div class="col-xs-2 text-center">
+          <div class="mdi mdi-navigation down"></div>
+        </div>
+        <div class="col-xs-5 text-right">En savoir plus</div>
+      </div>
+    </div>
+  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
+    <script src="node_modules/pixi-filters/dist/pixi-filters.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+    <script type="text/javascript">
+      var windowSize
+      var displacementSprite
+      var displacementFilter 
+      var displacementTextSprite 
+      var displacementTextFilter
+      var displacementPaperSprite 
+      var displacementPaperFilter
+      var displacementFilterTransition
+      var transitionActive = false;
+      var background
+      var blurFilter = new PIXI.filters.BlurFilter();
+      var backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
+      var noiseFilter = new PIXI.filters.NoiseFilter();
+      var testBlur = new PIXI.filters.TiltShiftFilter();
+      var app
+      var scenes, sceneSprites, introVideoSprite
+      var parallaxOffset = 0
+
+      function Scene(id, background){
+        this.id = id;
+        this.container = new PIXI.Container();
+      }
+
+      $(document).ready(function(){
+
+        windowSize = $(window).width() < 1024 ? 0 : 1;
+
+      var width = $(window).width();
+      var height = $(window).height();
+
+      textWidth = 400
+      if(width < 768){
+        textWidth = 300
+      }else if(width < 1280 ){
+        textWidth = 400
+      }else{
+        textWidth = 400
+      }
+
+      // Create the PIXI App
+      app = new PIXI.Application({
+          width: width,
+          height: height,
+          antialias: true,
+          transparent: false,
+          resolution: 1,
+          autoresize: true
+      });
+
+      background = new PIXI.Container();
+      app.stage.addChild(background);
+
+      scenes = {
+        "map": new PIXI.Container()
+      }
+
+      // Create the map background
+      mapBackground = new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_5.jpg"))
+      mapBackground.width = app.screen.width + 200;
+      mapBackground.height = app.screen.height + 200;
+      mapBackground.x = -100;
+      mapBackground.y = -100;
+      // TODO: BLUR
+      mapBackground.filters = [testBlur]
+      scenes.map.addChild(mapBackground)
+
+      // Create the map polygon
+      var map = new PIXI.Graphics()
+      var mapScale = windowSize == 0 ? 1 : 0.5;
+
+      // Create the map container
+      var mapContainer = new PIXI.Container();
+      mapContainer.scale.x = 1
+      mapContainer.scale.y = 1
+
+      var projection = d3.geoMercator();
+      var lemanBounds = [
+        [6.0610, 46.1408], // SW
+        [7.0204, 46.6316] // NE
+      ]
+      
+      var mapWidth = app.view.width
+      var mapHeight = app.view.height
+
+      map.width = mapWidth;
+      map.height = mapHeight;
+      map.x = (app.screen.width - mapWidth * mapScale) / 2;
+      map.y = (app.screen.height - mapHeight * mapScale) / 2;
+      map.pivot.x = map.width/2
+      map.pivot.y = map.height/2
+      map.scale.x = mapScale
+      map.scale.y = mapScale
+
+      // Create the map title
+      mapText = new PIXI.Text("Les événements".toUpperCase(), {
+          fontFamily: 'Pathway Gothic One',
+          fontSize: "30px",
+          fontWeight: "400",
+          letterSpacing: 0,
+          fill: "#222222",
+          align: 'center',
+          lineHeight: 1,
+          padding: 30
+      });
+      mapText.anchor.x = 0.5;
+      mapText.anchor.y = 0.5;
+      mapText.alpha = 0.85
+      mapText.x = app.screen.width/2;
+      mapText.y = map.y + 10;
+
+      projection
+          .scale(1)
+          .translate([0, 0]);
+
+      var b = [
+            projection(lemanBounds[0]), 
+            projection(lemanBounds[1])],
+          s = 1 / Math.max(
+            (b[1][0] - b[0][0]) / mapWidth,
+            (b[1][1] - b[0][1]) / mapHeight),
+          t = [
+            (mapWidth  - s * (b[1][0] + b[0][0])) / 2, 
+            (mapHeight - s * (b[1][1] + b[0][1])) / 2
+          ];
+
+      projection
+          .scale(s)
+          .translate(t);
+
+      var path = d3.geoPath()
+         .projection(projection)
+         .context(map);
+
+
+      // Set the visual for the points
+      var point = new PIXI.Sprite(PIXI.Texture.fromImage("./cross.png"))
+
+      // Load the points
+      d3.json("incidents.geojson", function(error, incidents) {
+        for(var i=0; i<incidents.features.length; i++){
+
+
+          /**
+           * Make the events full list
+           */
+
+          // Grid
+          if(i <= incidents.features.length/2){
+            $(".all-events .col-md-4:first-child").append("\
+                <h2>" + (i+1) + ". " + incidents.features[i].properties["Name"] + "</h2>\
+               <p>" + incidents.features[i].properties["description"] + "</p>\
+            ")
+          }else{
+            $(".all-events .col-md-4:last-child").append("\
+                <h2>" + (i+1) + ". " + incidents.features[i].properties["Name"] + "</h2>\
+               <p>" + incidents.features[i].properties["description"] + "</p>\
+            ")
+          }
+
+
+          /**
+           * Draw the points on the map
+           */
+
+          let p = incidents.features[i].geometry.coordinates
+          let pointSprite =  PIXI.Sprite.fromImage('./cross.png');
+
+          pointSprite.x = projection([p[0], p[1]])[0]*mapScale + (app.screen.width - mapWidth * mapScale) / 2
+          pointSprite.y = projection([p[0], p[1]])[1]*mapScale + (app.screen.height - mapHeight * mapScale) / 2
+
+          pointSprite.interactive = true
+          pointSprite.buttonMode = true
+          pointSprite.defaultCursor = 'pointer';
+          pointSprite.anchor.set(0.5)
+
+          pointSprite.pointerover = function(i, f) {
+            return function(){
+              this.scale.set(1.2, 1.2)
+              //$(".map-tooltip h2").text(f.properties["Name"])
+              //$(".map-description p").text(f.properties["description"])
+              mapText.text = i + ". " + f.properties["Name"].toUpperCase();
+            }
+          }(i, incidents.features[i])
+
+          pointSprite.pointerout = function(mouseData) {
+            this.scale.set(1, 1)
+          }
+
+          mapContainer.addChild(pointSprite)
+        }
+      })
+
+      mapLake = new PIXI.Sprite(PIXI.Texture.fromImage("./map_lake_d.png"));
+      mapLake.width = projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0];
+      mapLake.height = projection(lemanBounds[1])[1] - projection(lemanBounds[0])[1];
+      mapLake.x = projection(lemanBounds[0])[0];
+      mapLake.y = projection(lemanBounds[1])[1];
+
+      map.addChild(mapLake)
+
+      mapContainer.addChild(map)
+      mapContainer.addChild(mapText)
+      scenes.map.addChild(mapContainer)
+
+      blurFilter = new PIXI.filters.BlurFilter();
+      backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
+      noiseFilter = new PIXI.filters.NoiseFilter();
+      blurFilter.blur = 1;
+      backgroundBlurFilter.blur = 10
+      backgroundBlurFilter.gradientBlur = 200
+      noiseFilter.noise = 0.075;
+
+      // Background and elements water effect
+      displacementSprite = PIXI.Sprite.fromImage('displace.png');
+      displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite);
+      displacementFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      app.stage.addChild(displacementSprite);
+
+      // Same effect on titles but lighter
+      displacementTextSprite = PIXI.Sprite.fromImage('displace.png');
+      displacementTextFilter = new PIXI.filters.DisplacementFilter(displacementTextSprite);
+      displacementTextFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      //displacementTextFilter.scale = 1
+      app.stage.addChild(displacementTextSprite);
+
+      // Same effect on newspapers
+      displacementPaperSprite = PIXI.Sprite.fromImage('displace.png');
+      displacementPaperFilter = new PIXI.filters.DisplacementFilter(displacementPaperSprite);
+      displacementPaperFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+      app.stage.addChild(displacementPaperSprite);
+
+      scenes.map.x = 0;
+      scenes.map.y = 0;
+      testBlur.blur = 10
+      testBlur.gradientBlur = 100
+      scenes.map.filters = [noiseFilter, displacementTextFilter]
+      app.stage.addChild(scenes.map)
+
+      var v = 0
+
+      app.ticker.add(function(delta) {
+            v += 0.1
+            var mouseposition = app.renderer.plugins.interaction.mouse.global;
+
+            // Background and titles parallax
+            if(mouseposition.x >= 0 && mouseposition.x <= app.screen.width
+              && mouseposition.y >= 0 && mouseposition.y <= app.screen.height){
+              parallaxIt(mouseposition, mapBackground, -100);
+              parallaxIt(mouseposition, mapContainer, -50);
+            }
+
+
+            /**
+             * Floating movement based on combined sine waves
+             */
+
+            // Map paper
+            mapContainer.y =
+            - (Math.sin(v*0.1)*Math.sin(v*0.2)*50)
+            mapContainer.x =
+            - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)
+            mapContainer.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/20
+            mapContainer.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/20
+
+            // Backround movement added to the parallax
+            TweenMax.to(mapBackground, 1, {
+              rotation: Math.sin(v*0.025)*Math.sin(v*0.05)/100
+            });
+
+            // Filters animation
+            noiseFilter.seed = Math.random()
+            displacementSprite.x += 5;
+            displacementSprite.y += 5;
+            displacementTextSprite.x += 2;
+            displacementTextSprite.y += 2;
+            displacementPaperSprite.x += 2;
+            displacementPaperSprite.y += 2;
+      });
+
+      document.body.prepend(app.view);
+
+      });
+
+      function sceneParallaxIt(e, target, movement) {
+        var $this = $(app.view);
+        var relX = e.x - 0;
+        var relY = e.y - 0;
+
+        if( !transitionActive ){
+          TweenMax.to(target, 1, {
+            x: (relX - $this.width() / 2) / $this.width() * movement,
+            y: (relY - $this.height() / 2) / $this.height() * movement - parallaxOffset
+          });
+        }
+      }
+
+      function parallaxIt(e, target, movement) {
+        var $this = $(app.view);
+        var relX = e.x - 0;
+        var relY = e.y - 0;
+
+        if( !transitionActive ){
+          TweenMax.to(target, 1, {
+            x: (relX - $this.width() / 2) / $this.width() * movement,
+            y: (relY - $this.height() / 2) / $this.height() * movement
+          });
+        }
+      }
+
+      $('body').on('click', function(){
+        $('.map-description')
+          .toggleClass('visible');
+      })
+
+    </script>
+</body>
+
+</html>

@@ -6,17 +6,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Asul" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Francois+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/css/tooltipster.min.css" />
     <style type="text/css">
+
+      @font-face {
+          font-family: Publico Headline;
+          font-style: normal;
+          font-weight: 500;
+          src: url(//www.tagesanzeiger.ch/css/fonts/publico/PublicoHeadline-Medium-Web.eot);
+          src: url(//www.tagesanzeiger.ch/css/fonts/publico/PublicoHeadline-Medium-Web.eot#iefix) format("embedded-opentype"), url(//www.tagesanzeiger.ch/css/fonts/publico/PublicoHeadline-Medium-Web.woff) format("woff"), url(//www.tagesanzeiger.ch/css/fonts/publico/PublicoHeadline-Medium-Web.ttf) format("truetype"), url(//www.tagesanzeiger.ch/css/fonts/publico/PublicoHeadline-Medium-Web.svg) format("svg")
+      }
+
       body, html{
         -webkit-font-smoothing: antialiased;
         padding: 0px;
@@ -41,8 +46,45 @@
         text-shadow: 0px 0px 2px rgba(255,255,255,0.75);
       }
 
+      .author{
+        opacity: 0.85;
+        font-size: 14px;
+        line-height: 1.75;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: transparent;
+        text-shadow: 0px 0px 1px rgba(255,255,255,0.75);
+        margin-bottom: 40px;
+      }
+
       p.lettrine::first-letter {
 
+      }
+
+      .videoWrapper {
+          height: 0;
+          overflow: hidden;
+          padding-bottom: 52.35%;
+          padding-top: 30px;
+          position: relative;
+          margin-top: 40px;
+      }
+
+      .videoWrapper iframe {
+          height: 100%;
+          left: 0;
+          position: absolute;
+          top: 0;
+          width: 100%;
+      }
+
+      #video{
+        position: fixed;
+        z-index: 99;
+        top:0px;
+        bottom: 0px;
+        left:0px;
+        right: 0px;
       }
 
       h2{
@@ -79,44 +121,6 @@
         text-transform: uppercase;
         font-size: 20px;
         line-height: 1;
-      }
-
-      .footer > div{
-        display: -webkit-flex;
-        display: flex;
-        -webkit-justify-content: center;
-        justify-content: center;
-        -webkit-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-align-items: center;
-        align-items: center;
-      }
-
-      .footer > div > div{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
-      }
-
-      .footer > div > div > div{
-        -webkit-flex-grow: 1;
-        flex-grow: 1;
-      }
-
-      .footer .pagination{
-        font-size: 30px;
-        line-height: 0px;
       }
 
       .footer .mdi-navigation{
@@ -159,20 +163,16 @@
         height: 200vh;
       }
 
-      .map_scene{
-        position: absolute;
-        z-index: 99;
-        top:0px;
-        left: 0px;
-        width: 100%;
-        width: height%;
-        color: rgba(255,255,255,0.65);
-        display: none;
+      .all-events h2{
+        font-family: "Pathway Gothic one";
+        text-transform: uppercase;
       }
 
-      .map-infos{
-        border-top:1px solid rgba(255,255,255,0.2);
-        margin-top: 70px;
+      .all-events p{
+        font-size: 14px;
+        opacity: 0.85;
+        text-shadow: none;
+        color: #ffffff;
       }
 
       .navbar a i{
@@ -206,7 +206,7 @@
                 <a class="navbar-brand" href="https://www.24heures.ch"></a>
               </div>
             </div>
-            <div class="col-xs-6 text-right">
+            <div class="col-xs-6 text-right" style="line-height:50px;">
               <a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.24heures.ch/extern/interactive_wch/insectes"><i class="mdi mdi-facebook"></i></a>
               <a onclick="window.open(this.href, '_blank', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false" href="http://twitter.com/intent/tweet?text=A vos insectes, prêts, dégustez! http://insectes.24heures.ch"><i class="mdi mdi-twitter"></i></a>
               <a href="mailto:?&amp;subject=24heures - A vos insectes, prêts, dégustez!&amp;body=Dès le 1er mai, les Suisses pourront légalement acheter et consommer trois insectes différents. Zoom dans nos assiettes. http://insectes.24heures.ch"><i class="mdi mdi-email"></i></a>
@@ -214,6 +214,22 @@
           </div>
         </div>
     </nav>
+
+<!--     <div id='video' class="video_container container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class='videoWrapper'>
+            <iframe
+              class='externalNNIFrame'
+              src='https://www.24heures.ch/extern/videoplayer/videoplayer-nn.html?params=client@tagesanzeiger|videoId@340590|showLogo@1|autoStart@1|mute@0|showAds@false|previewPath@https://server025.newsnetz.tv/340590/frame-25-340590.jpg|platform@desktop'
+              allowFullScreen='true'
+              scrolling='no'
+              frameBorder='no'></iframe>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
     <div id="scene-0" class="container container_sp"">
 
     </div>
@@ -230,7 +246,8 @@
     <div id="scene-3" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <p class="lettrine">Le 24 novembre 1883, la Feuille d’Avis de Lausanne noircit ses colonnes avec le récit d’un triste naufrage survenu la veille. Par une nuit de tempête où le vent soulève des vagues énormes, deux navires à vapeurs, le Cygne et le Rhône, ayant chacun dévié de leur route habituelle, entrent en collision. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombre dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage. Des passagers du Cygne, rescapés de la catastrophe, témoignent: “L’avant du Rhône plongea perpendiculairement dans le lac. On vit l’arrière se dresser comme une tour hors de l’eau, puis disparaître sous la quille même du Cygne. Le bateau avait coulé à pic au milieu d’un formidable tourbillon! Un seul cri s’était fait entendre, un cris sauvage, atroce. Un dernier bouillonnement de l’eau, puis plus rien.” Son épave repose aujourd’hui par 300 mètres de profondeur. (Lien externe sur la fiche détaillée de l’accident)</p>
+          <div class="author"><b>Texte et vidéos:</b> Fabien Grenon</div>
+          <p class="lettrine">“Le Rhône a sombré , engloutissant avec lui une douzaine de passagers qui ont été noyés...” Le 24 novembre 1883, la Feuille d’Avis de Lausanne noircit ses colonnes avec le récit d’un triste naufrage survenu la veille. Par une nuit de tempête où le vent soulève des vagues énormes, deux navires à vapeurs, le Cygne et le Rhône, ayant chacun dévié de leur route habituelle, entrent en collision. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombre dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage. Des passagers du Cygne, rescapés de la catastrophe, témoignent: “L’avant du Rhône plongea perpendiculairement dans le lac. On vit l’arrière se dresser comme une tour hors de l’eau, puis disparaître sous la quille même du Cygne. Le bateau avait coulé à pic au milieu d’un formidable tourbillon! Un seul cri s’était fait entendre, un cris sauvage, atroce. Un dernier bouillonnement de l’eau, puis plus rien.” Son épave découverte en 1984 repose aujourd’hui par 300 mètres de profondeur.</p>
         </div>
       </div>
     </div>
@@ -240,8 +257,9 @@
     <div id="scene-3c" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <p>Des naufrages de bateaux piégés dans les tourbillons d’un lac déchaîné, au crash d’un hydravion pris dans une tempête soudaine, en passant par l’amerrissage forcé d’une montgolfière mise à mal par la bise, ou la présence étrange de wagons dormant à plus de 300 mètres de profondeur (Lien externe sur les drames dont il s’agit). Derrière ses airs lisses et romantiques, le Léman cache de nombreuses histoires oubliées ou méconnues aux conclusions parfois heureuses et cocasses mais souvent dramatiques. Autant de fantômes perdus dans des limbes que l’on pensait inaccessibles et qu’une exposition itinérante attendue du côté de Saint-Gingolph cet été se propose de remonter à la surface. (Lien externe sur l’expo)</p>
-          <p>“Le Léman peut être un lac très calme. Mais ce n’est pas un étang pour autant, confirme Lionel Gauthier, conservateur du Musée du Léman à Nyon. Il peut parfois s’énerver et se montrer impitoyable.” Il y a presque cinquante ans, le 18 août 1969, se jouait d’ailleurs au large de Thonon (F) l’une des tragédies les plus cruelles que le lac n’ait jamais connu. Par une journée ensoleillée mais venteuse, une cinquantaine de personnes, dont 25 petites orphelines d’une colonie de vacances, embarquent sur le petit bateau de plaisance la Fraidieu pour une petite croisière qui s’annonce plutôt bucoliques le long des côtes françaises. Mais à peine le port quitté, l’embarcation, chahutée par de grosses vagues, prend l’eau par l’arrière. Paniqués, les passagers sautent à l’eau. Vingt cinq d’entre eux y laisseront la vie, dont 14 petites filles de 11 à 14 ans. Deux pêcheurs interviennent pour leur porter secours. Parmi eux, Roland Condevaux âgé à l’époque de 25 ans. Son témoignage relaté dans la presse de l’époque fait froid dans le dos: “Dès que j’ai vu le navire s’enfoncer par l’arrière, j’ai mis le cap vers lui. J’ai hissé dans ma barque tous les corps qui me passaient sous la main. La première fois, j’ai ramené neuf personnes sur la rive. J’ai pratiqué la respiration artificielle à plusieurs d’entre elles. Au second voyage, j’ai ramené une femme inanimée, puis j’ai repêché encore deux fillettes”. (Lien externe sur la fiche détaillée de la catastrophe)</p>
+          <p>Des naufrages de bateaux piégés dans les tourbillons d’un lac déchaîné, au crash d’un hydravion pris dans une tempête soudaine, en passant par l’amerrissage forcé d’une montgolfière mise à mal par la bise, ou la présence étrange de wagons dormant à plus de 300 mètres de profondeur. Derrière ses airs lisses et romantiques, le Léman cache de nombreuses histoires oubliées ou méconnues aux conclusions parfois heureuses et cocasses mais souvent dramatiques. Autant de fantômes perdus dans des limbes que l’on pensait inaccessibles et qu’une exposition itinérante attendue du côté de Saint-Gingolph cet été se propose de remonter à la surface.</p>
+
+          <p>“Le Léman peut être un lac très calme. Mais ce n’est pas un étang pour autant, confirme Lionel Gauthier, conservateur du Musée du Léman à Nyon. Il peut parfois s’énerver et se montrer impitoyable.” Il y a presque cinquante ans, le 18 août 1969, se jouait d’ailleurs au large de Thonon (F) l’une des tragédies les plus cruelles que le lac n’ait jamais connu. Par une journée ensoleillée mais venteuse, une cinquantaine de personnes, dont 25 petites orphelines d’une colonie de vacances, embarquent sur le petit bateau de plaisance la Fraidieu pour une petite croisière qui s’annonce plutôt bucoliques le long des côtes françaises. Mais à peine le port quitté, l’embarcation, chahutée par de grosses vagues, prend l’eau par l’arrière. Paniqués, les passagers sautent à l’eau. Vingt cinq d’entre eux y laisseront la vie, dont 14 petites filles de 11 à 14 ans. Deux pêcheurs interviennent pour leur porter secours. Parmi eux, Roland Condevaux âgé à l’époque de 25 ans. Son témoignage relaté dans la presse de l’époque fait froid dans le dos: “Dès que j’ai vu le navire s’enfoncer par l’arrière, j’ai mis le cap vers lui. J’ai hissé dans ma barque tous les corps qui me passaient sous la main. La première fois, j’ai ramené neuf personnes sur la rive. J’ai pratiqué la respiration artificielle à plusieurs d’entre elles. Au second voyage, j’ai ramené une femme inanimée, puis j’ai repêché encore deux fillettes”.</p>
         </div>
       </div>
     </div>
@@ -263,7 +281,8 @@
     <div id="scene-7" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <p>Mais Dame nature n’est pas seule responsable. Le fourvoiement des hommes est à l’origine également de bien des histoires malheureuses. A l’instar du naufrage de l’Hirondelle le 10 juin 1862 au large de la Tour-de-Peilz, après que sa coque a touché, dans une manoeuvre maladroite, les fonds rocheux, peu profonds à cet endroit-là. Si ses quelques 300 passagers ont pu tous être secourus sans encombre ou presque, l’élégant navire à vapeur n’a pas eu cette chance. Après de nombreuses tentatives de renflouage, l’Hirondelle alors échoué sur des rochers sombrera définitivement deux mois plus tard, victime d’une tempête nocturne. “Dans la journée de samedi, les travaux de sauvetage de l’Hirondelle avaient réussi à ramener le navire passablement hors de l’eau; malheureusement la nuit interrompit les travaux, une bourrasque survint et l’Hirondelle fut de nouveau complètement submergée. Elle a, dit-on, disparu complètement dans le lac”, écrit-on dans la Feuille d’Avis de Lausanne à l’époque. Son épave bien connue des plongeurs lacustres repose aujourd’hui à près de 60 mètres de profondeur. (Lien externe sur la fiche de l’accident)</p>
+          <h2>Des erreurs humaines</h2>
+          <p>Mais Dame nature n’est pas seule responsable. Le fourvoiement des hommes est à l’origine également de bien des histoires malheureuses. A l’instar du naufrage de l’Hirondelle le 10 juin 1862 au large de la Tour-de-Peilz, après que sa coque a touché, dans une manoeuvre maladroite, les fonds rocheux, peu profonds à cet endroit-là. Si ses quelques 300 passagers ont pu tous être secourus sans encombre ou presque, l’élégant navire à vapeur n’a pas eu cette chance. Après de nombreuses tentatives de renflouage, l’Hirondelle alors échoué sur des rochers sombrera définitivement deux mois plus tard, victime d’une tempête nocturne. “Dans la journée de samedi, les travaux de sauvetage de l’Hirondelle avaient réussi à ramener le navire passablement hors de l’eau; malheureusement la nuit interrompit les travaux, une bourrasque survint et l’Hirondelle fut de nouveau complètement submergée. Elle a, dit-on, disparu complètement dans le lac”, écrit-on dans la Feuille d’Avis de Lausanne à l’époque. Son épave bien connue des plongeurs lacustres repose aujourd’hui à près de 60 mètres de profondeur.</p>
           <p>Aujourd’hui, les catastrophes et les tragédies, le Léman en connaît de moins en moins. Motorisation des bateaux, moyens de communication plus efficaces, images satellite permettant de mieux prédire la météo: le domaine de la navigation a connu ces dernière décennies une véritable révolution. “Il y a encore pas si longtemps, avant l’apparition de la radio, c’est à la fusée que les secours étaient appelés. Et ensuite, c’était à la rame que ces derniers intervenaient”, rappelle alors Michel Detrey, président de la Société internationale de sauvetage du Léman (SISL), dont toutes les sections régionales confondues sont intervenues près de 820 fois en 2017.</p>
           <p>Sans compter qu’au fil des années et des tragédies, les règles de sécurité n’ont eu de cesse de s’affiner.  “A chaque accidents, on a tiré des enseignements, ce qui a aussi aussi permis d’améliorer la sécurité sur le lac”, continue Michel Detrey. A noter d’ailleurs que c’est après la collision du Rhône et du Cygne que la nécessité de structurer et de mutualiser le sauvetage sur le lac est apparue. D’où la création, le 6 juin 1885, de la SISL regroupant aujourd’hui 34 sections locales réparties entre le Valais, Vaud, Genève et la France.</p>
         </div>
@@ -275,17 +294,11 @@
     <div id="scene-9" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3" style="padding-bottom: 140px;">
-          <h2>L’importance du travail de mémoire</h2>
-          <p>Il y a des stèles commémoratives posées ça et là tout autour du lac en mémoire de certains naufrages. Il y a des articles de presse qui paraissent parfois lorsque c’est l’anniversaire d’un drame particulièrement marquant. Et il y a des passionnés qui montent ponctuellement des expositions sur l’un ou l’autre aspect de l’histoire lémanique, à l’instar de Philippe Constantin et Michel-Félix de Vidas de l’Association des usagers des Bains des Pâquis (AUBP) à Genève qui ont monté les “Fantômes du lac” attendu dans plusieurs localités du pourtour lémanique, dont Saint-Gingolph cet été.</p>
-          <p>“Chaque catastrophe n’a pas son épave au fond du lac. Et les témoins ou rescapés ne sont souvent plus là pour nous en parler. D’où l’importance du travail de mémoire pour rappeler aux gens que notre lac peut être impitoyable.” Toutes ces initiatives enchantent Lionel Gauthier, conservateur du Musée du Léman à Nyon. Surtout que, malgré des projets d’agrandissement, le musée du Léman ne serait jamais être assez grand pour tout dire et tout montrer.</p>
+          <h2>Titre exposition</h2>
+          <p>L’exposition gratuite des “Fantômes du Léman” qui s’est installée en janvier dernier aux Bains des Pâquis à Genève ne devait avoir qu’une durée de vie limitée. Mais victime de son succès, elle a été prolongée et connaîtra une seconde existence. En effet, plusieurs localités du pourtour lémanique ont manifesté le désir de l’accueillir. En juin prochain, c’est à Saint-Gingolph (VS) qu’elle fera escale pour l’été, avant de caboter le long des côtes en 2019 et 2020. Si rien n’a encore été signé, Morges et Nyon devraient suivre le pas.</p>
+          <p>“Ce qui interpelle et passionne les foules, c’est ce décalage entre une image de lac tranquille d’un côté et les violentes catastrophes qui ont pu s’y dérouler de l’autre”, explique Philippe Constantin, coordinateur de l’Association des utilisateurs des Bains des Pâquis à Genève (AUBP), à l’origine du projet avec son collègue en charge de l’animation culturelle, Michel-Félix de Vidas. Sans compter que pour nous qui vivons autour du lac, tous ces drames font véritablement partie de notre histoire.”</p>
+          <p>L’idée a germé il y trois ans, lorsque Michel-Félix de Vidas a accès aux vidéos des explorations des fonds lémaniques menées en 2011 par les deux sous-marins russes MIR. “On y voyait pas grand chose, d’où notre volonté d’approfondir le sujet, car on savait que beaucoup de choses reposent au  fond du lac.” Après avoir un peu fouiller les archives de la presse de l’époque, avoir consulter les archives du Musée du Léman et sorti quelques squelettes du placard: “les fantômes du Léman” prend forme. Mais pas question de faire de cette exposition une simple énumération de catastrophe. “L’idée était d’incarner un maximum ces histoires, et de ne pas s’arrêter uniquement à celles qui sont tragiques. C’est pourquoi notre exposition relate également des choses plus insolite ou plus poétique.”</p>
         </div>
-      </div>
-    </div>
-
-    <div class="map_scene">
-      <div class="map-infos container fluid">Infos</div>
-      <div class="map-tooltip">Tooltip</div>
-      <div class="container all-events">
       </div>
     </div>
 
@@ -293,7 +306,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-5 text-left">
-            <a class="menu-link" id="map-link" href="#">La carte<span class="hidden-xs"> des événements</span></a>
+            <a class="menu-link" id="map-link" href="map.html"><i class="mdi mdi-map"></i>La carte<span class="hidden-xs"> des événements</span></a>
           </div>
           <div class="col-xs-2 text-center">
             <!--<div class="mdi mdi-navigation up"></div>
@@ -315,8 +328,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js"></script>
     <script type="text/javascript">
+      var windowSize
       var displacementSprite
       var displacementFilter 
       var displacementTextSprite 
@@ -341,7 +354,6 @@
       var introPaperXOffset = introPaperYOffset = 0
       var fraidieuPaperXOffset = fraidieuPaperYOffset = 0
       var videoPaperXOffset = videoPaperYOffset = 0
-      //var fraidieuPhotoXOffset = fraidieuPhotoYOffset = 0
 
 
       function Scene(id, background){
@@ -350,6 +362,8 @@
       }
 
       $(document).ready(function(){
+
+        windowSize = $(window).width() < 1024 ? 0 : 1;
 
       var width = $(window).width();
       var height = $(window).height();
@@ -369,6 +383,7 @@
       video.muted = true;
       video.loop = true;
       video.src = "./scenes/intro.mp4";
+      video.poster = "./intro-poster.jpg";
 
       // Create the PIXI App
       app = new PIXI.Application({
@@ -392,7 +407,6 @@
       scenes = {
         "intro": new Scene(),
         "transition": new PIXI.Container(),
-        "map": new PIXI.Container(),
         "brick": new PIXI.Container(),
         "rhone": new PIXI.Container(),
         "hirondelle": new PIXI.Container(),
@@ -429,193 +443,6 @@
       fraidieuPaperYOffset = app.screen.height + 100;
       fraidieuPaper.pivot.x = fraidieuPaper.width * 0.5;
       fraidieuPaper.pivot.y = fraidieuPaper.height * 0.5;
-
-      // Newspaper Fraidieu Photography
-      fraidieuPhoto = new PIXI.Sprite(PIXI.Texture.fromImage("./press-photo-2.jpg"));
-      fraidieuPhotoXOffset = app.screen.width/2 - 200;
-      fraidieuPhotoYOffset = app.screen.height + 100;
-      fraidieuPhoto.pivot.x = fraidieuPhoto.width * 0.5;
-      fraidieuPhoto.pivot.y = fraidieuPhoto.height * 0.5;
-
-      // Create the map background
-      mapBackground = new PIXI.Sprite(PIXI.Texture.fromImage("./scenes/wreck_5.jpg"))
-      mapBackground.width = app.screen.width + 200;
-      mapBackground.height = app.screen.height + 200;
-      mapBackground.x = -100;
-      mapBackground.y = -100;
-      // TODO: BLUR
-      mapBackground.filters = [testBlur]
-      scenes.map.addChild(mapBackground)
-
-      // Create the map Sprite base
-      // var mapSprite = new PIXI.Sprite(PIXI.Texture.fromImage("./map_background.jpg"))
-      // mapSprite.width = app.screen.width
-      // mapSprite.height = app.screen.height
-      // scenes.map.addChild(mapSprite);
-
-      // Create the map Sprite hover effect
-      var mapSpritePointer = new PIXI.Sprite(PIXI.Texture.fromImage("./map_pointer_texture.jpg"))
-      mapSpritePointer.width = app.screen.width + 200;
-      mapSpritePointer.height = app.screen.height + 200;
-      mapSpritePointer.x = -100;
-      mapSpritePointer.y = -100;
-      //scenes.map.addChild(mapSpritePointer);
-
-      pointerMask = new PIXI.Sprite(PIXI.Texture.fromImage("./pointer_mask.jpg"))
-      pointerMask.anchor.set(0.5)
-      pointerMask.x = 200;
-      pointerMask.y = 200;
-      scenes.map.addChild(pointerMask);
-
-      // Create the map polygon
-      var map = new PIXI.Graphics()
-
-      // Create the map container
-      var mapContainer = new PIXI.Container();
-      mapContainer.scale.x = 1
-      mapContainer.scale.y = 1
-
-      var projection = d3.geoMercator();
-      var lemanBounds = [
-        [6.083, 46.200], // SW
-        [7.013, 46.552] // NE
-      ]
-      
-      var mapWidth = app.view.width
-      var mapHeight = app.view.height
-
-      map.width = mapWidth;
-      map.height = mapHeight;
-      map.x = (app.screen.width - mapWidth * .85) / 2;
-      map.y = (app.screen.height - mapHeight * .85) / 2;
-      map.pivot.x = map.width/2
-      map.pivot.y = map.height/2
-      map.scale.x = .85
-      map.scale.y = .85
-
-      /*map.beginFill(0xf5f6f7, 1);
-      map.drawRect(0, 0, mapWidth, mapHeight);
-      map.endFill();*/
-
-      projection
-          .scale(1)
-          .translate([0, 0]);
-
-      var b = [
-            projection(lemanBounds[0]), 
-            projection(lemanBounds[1])],
-          s = 1 / Math.max(
-            (b[1][0] - b[0][0]) / mapWidth,
-            (b[1][1] - b[0][1]) / mapHeight),
-          t = [
-            (mapWidth  - s * (b[1][0] + b[0][0])) / 2, 
-            (mapHeight - s * (b[1][1] + b[0][1])) / 2
-          ];
-
-      projection
-          .scale(s)
-          .translate(t);
-
-      // map.beginFill(0xff00ff, 0.2);
-      // map.drawRect(
-      //   projection(lemanBounds[0])[0],
-      //   projection(lemanBounds[0])[1], 
-      //   projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0],
-      //   projection(lemanBounds[1])[1] - projection(lemanBounds[0])[1]);
-      // map.endFill();
-
-      var path = d3.geoPath()
-         .projection(projection)
-         .context(map);
-
-      /*d3.json("leman_cor.topojson", function(error, leman) {
-        if (error) throw error;
-        map.beginFill(0xffffff, 0.2);
-        path(topojson.mesh(leman));
-        map.endFill();
-
-        // Mask the lake base texture with the polygon of the lake
-        //mapSprite.mask = map;
-        //pointerMask.mask = map;
-
-        // Mask the pointer layer with the pointer mask
-        mapSpritePointer.mask = pointerMask;
-
-        pointerMaskTexture = new PIXI.Texture(
-          app.renderer.generateTexture(mapSpritePointer));
-
-        pointerMaskSprite = new PIXI.Sprite(pointerMaskTexture);
-
-        scenes.map.addChild(pointerMaskSprite);
-        //map.blendMode = PIXI.BLEND_MODES.DIFFERENCE;
-
-      });*/
-
-      // Load the points
-
-      var pointBlur = new PIXI.filters.BlurFilter();
-      pointBlur.blur = 2
-
-      //var point = PIXI.Sprite(PIXI.Texture.fromImage("./cross.png"))
-      var point = new PIXI.Graphics();
-      point.beginFill(0xffffff, 1);
-      point.drawCircle(0, 0, 10);
-      point.endFill();
-
-      d3.json("incidents.geojson", function(error, incidents) {
-        for(var i=0; i<incidents.features.length; i++){
-
-          // Grid
-          if(i%4 ==0){
-            var c = $("<div class='row' />")
-          }
-          //c.append("<div class='col-md-3'>"+incidents.features[i].properties["Name"]+"</div>").appendTo(".all-events")
-
-          let p = incidents.features[i].geometry.coordinates
-          //let pointTexture = new PIXI.Texture(app.renderer.generateTexture(point));
-          let pointTexture = new PIXI.Texture(app.renderer.generateTexture(point));
-          let pointSprite = new PIXI.Sprite(pointTexture);
-
-          //console.log(incidents.features[i])
-
-          pointSprite.x = projection([p[0], p[1]])[0]*.85 + (app.screen.width - mapWidth * .85) / 2
-          pointSprite.y = projection([p[0], p[1]])[1]*.85 + (app.screen.height - mapHeight * .85) / 2
-
-          pointSprite.interactive = true
-          pointSprite.buttonMode = true
-          pointSprite.defaultCursor = 'pointer';
-          pointSprite.anchor.set(0.5)
-          pointSprite.filters = [pointBlur];
-          pointSprite.alpha = 0.75;
-          pointSprite.blendMode = PIXI.BLEND_MODES.ADD;
-
-          pointSprite.pointerover = function(f) {
-            return function(){
-              console.log(f)
-              this.alpha = 0.65;
-              this.scale.set(2, 2)
-              $(".map-tooltip").text(f.properties["Name"])
-            }
-          }(incidents.features[i])
-
-          pointSprite.pointerout = function(mouseData) {
-            this.alpha = 0.75;
-            this.scale.set(1, 1)
-          }
-
-          mapContainer.addChild(pointSprite)
-        }
-      })
-
-      mapLake = new PIXI.Sprite(PIXI.Texture.fromImage("./map_lake.png"));
-      mapLake.width = projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0];
-      mapLake.height = projection(lemanBounds[1])[1] - projection(lemanBounds[0])[1];
-      mapLake.x = projection(lemanBounds[0])[0];
-      mapLake.y = projection(lemanBounds[1])[1];
-
-      map.addChild(mapLake)
-      mapContainer.addChild(map)
-      scenes.map.addChild(mapContainer)
 
       // Intro video
       introVideoSprite.width = app.screen.width + 200;
@@ -689,18 +516,18 @@
       introPaper.filters = [displacementPaperFilter, noiseFilter]
       videoPaper.filters = [displacementPaperFilter, noiseFilter]
       fraidieuPaper.filters = [displacementPaperFilter, noiseFilter]
-      map.filters = [blurFilter];
 
       // Main title
       title = new PIXI.Graphics()
       titleText = new PIXI.Text("Les fantômes du Léman".toUpperCase(), {
           fontFamily: 'Pathway Gothic One',
-          fontSize: "4vw",
+          wordWrap:true,
+          fontSize: windowSize == 0 ? "50px" : "50px",
           fontWeight: "400",
           letterSpacing: 6,
           fill: "white",
           align: 'center',
-          lineHeight: 2,
+          lineHeight: 50,
           padding: 30
       });
       titleText.anchor.x = 0.5;
@@ -718,14 +545,9 @@
       background.addChild(sceneSprites[2])
       background.addChild(sceneSprites[1])
       background.addChild(introVideoSprite)
-      //background.addChild(map)
-      //background.addChild(introVideo);
-      scenes.map.x = 0;
-      scenes.map.y = 0;
+
       testBlur.blur = 10
       testBlur.gradientBlur = 100
-      scenes.map.filters = [noiseFilter, displacementTextFilter]
-      //app.stage.addChild(scenes.map)
 
       var v = 0
 
@@ -738,7 +560,6 @@
               && mouseposition.y >= 0 && mouseposition.y <= app.screen.height){
               sceneParallaxIt(mouseposition, background, -150);
               parallaxIt(mouseposition, title, -50);
-              parallaxIt(mouseposition, mapContainer, -50);
             }
 
             /**
@@ -773,15 +594,6 @@
             TweenMax.to(background, 1, {
               rotation: Math.sin(v*0.025)*Math.sin(v*0.05)/100
             });
-
-
-            //Mask pointer for the map
-            pointerMask.x = mouseposition.x
-            pointerMask.y = mouseposition.y
-
-            //pointerMaskTexture = new PIXI.Texture(
-            //  app.renderer.generateTexture(mapSpritePointer));
-            //pointerMaskSprite = new PIXI.Sprite(pointerMaskTexture);
 
             // Filters animation
             noiseFilter.seed = Math.random()
@@ -945,7 +757,7 @@
 
               app.stage.addChild(title);
               
-              // Fade out the title
+              // Fade in the title
               TweenMax.to(title, 0.25, {
                 ease: Circ.easeOut,
                 alpha: 1
@@ -1241,11 +1053,11 @@
           onComplete: function () {
             console.log("animation complete")
             transitionActive = false;
-            title = createWreckTitle("Une épave de bateau", "23 novembre 1883")
+            /*title = createWreckTitle("Une épave de bateau", "23 novembre 1883")
             title.alpha = 0;
             app.stage.addChild(title)
             title.filters = [displacementTextFilter];
-            TweenMax.to(title, 1, {alpha:0.75})
+            TweenMax.to(title, 1, {alpha:0.75})*/
           }
         });
         baseTimeline.clear();
@@ -1277,11 +1089,6 @@
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
 
-      $('#map-link').on('click', function(){
-        app.stage.addChild(scenes.map)
-        $(".map_scene").show();
-        $(".container_sp").css({zIndex:0})
-      })
 
       $(window).resize(function(){
         introVideoSprite.width = app.renderer.width + 200;
