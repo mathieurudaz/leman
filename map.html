@@ -201,15 +201,15 @@
         min-height: 100%;
         left: 0px;
         right: 0px;
+        top:0px;
         min-height: 100vh;
         background-color: black;
-        z-index: 999;
-        display: none;
-        transform: translateY(-100vh);
+        z-index: 1;
+        transform: translateY(100vh);
+        transition: transform 500ms ease-in;
       }
 
-      .map-desription.visible{
-        display: block;
+      .map-description.visible{
         transform: translateY(0vh);
       }
 
@@ -265,12 +265,14 @@
   </nav>
 
   <div class="map-description">
+    <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-left">
           <h2>Michel-Félix de Vidas</h2>
           <p>L’idée a germé il y trois ans, lorsque Michel-Félix de Vidas a accès aux vidéos des explorations des fonds lémaniques menées en 2011 par les deux sous-marins russes MIR.</p>
         </div>
       </div>
+    </div>
   </div>
 
   <div class="map_scene">
@@ -415,7 +417,9 @@
       mapText.anchor.y = 0.5;
       mapText.alpha = 0.85
       mapText.x = app.screen.width/2;
-      mapText.y = map.y + 10;
+      mapText.y = (app.screen.height / 2) - (mapHeight * mapScale / 2) + (mapHeight*mapScale/10);
+
+      console.log(map.y)
 
       projection
           .scale(1)
