@@ -596,25 +596,28 @@
         var buttonEndTurn = new PIXI.Graphics();
         var buttonText = new PIXI.Text(title.toUpperCase(),
         {
+            wordWrap:true,
             fontFamily: 'Pathway Gothic One',
-            fontSize: "5vw",
+            fontSize: windowSize == 0 ? "50px" : "50px",
+            lineHeight: 50,
             fontWeight: "400",
             letterSpacing: 6,
             fill: "white",
             align: 'center',
-            lineHeight: 2,
-            padding: 30
+            padding: 30,
+            wordWrapWidth: 300
         });
 
         var dateText = new PIXI.Text(date.toUpperCase(),
         {
+            wordWrap:true,
             fontFamily: 'Pathway Gothic One',
-            fontSize: "2.5vw",
+            fontSize: windowSize == 0 ? "20px" : "20px",
+            lineHeight: 20,
             fontWeight: "200",
             letterSpacing: 6,
             fill: "white",
             align: 'center',
-            lineHeight: 2,
             padding: 30
         });
 

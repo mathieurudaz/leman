@@ -13,6 +13,22 @@
     <link rel="stylesheet" type="text/css" href="css/footer.css">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
     <style type="text/css">
+
+      @keyframes float {
+        0% {
+          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+          transform: translatey(0px);
+        }
+        50% {
+          box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+          transform: translatey(-20px);
+        }
+        100% {
+          box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+          transform: translatey(0px);
+        }
+      }
+
       body, html{
         -webkit-font-smoothing: antialiased;
         padding: 0px;
@@ -142,6 +158,34 @@
         transform: translateY(0vh);
       }
 
+      .map-description h2{
+        font-family: "Pathway Gothic one";
+        text-transform: uppercase;
+      }
+
+      .map-description .title-date{
+        font-family: "Pathway Gothic one";
+        text-transform: uppercase;
+        font-size: 20px;
+        text-shadow: 0px 0px 2px rgba(255,255,255,0.75);
+        opacity: 0.85;
+        color: transparent;
+        margin-bottom: 40px;
+      }
+
+      .map-description.visible p{ opacity:1; text-shadow: 0px 0px 2px rgba(255,255,255,0.75); }
+      .map-description p{
+          opacity: 0;
+          text-shadow: 0px 0px 90px rgba(255,255,255,0.75);
+          transition: text-shadow .5s ease-in, opacity 1s ease-in;
+      }
+
+      .map-description img{
+        box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+        transform: translatey(0px);
+        animation: float 6s ease-in-out infinite;
+      }
+
       .all-events h2{
         font-family: "Pathway Gothic one";
         text-transform: uppercase;
@@ -201,8 +245,11 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3 text-left">
-          <h2>Michel-Félix de Vidas</h2>
-          <p>L’idée a germé il y trois ans, lorsque Michel-Félix de Vidas a accès aux vidéos des explorations des fonds lémaniques menées en 2011 par les deux sous-marins russes MIR.</p>
+          <h2></h2>
+          <div class='title-date'></div>
+          <p></p>
+          <div class="images-list"></div>
+          <div class="videos-list"></div>
         </div>
       </div>
 
@@ -211,7 +258,7 @@
           <div class='videoWrapper'>
             <iframe
               class='externalNNIFrame'
-              src='https://www.24heures.ch/extern/videoplayer/videoplayer-nn.html?params=client@tagesanzeiger|videoId@340590|showLogo@1|autoStart@0|mute@0|showAds@false|previewPath@https://server025.newsnetz.tv/340590/frame-25-340590.jpg|platform@desktop'
+              src=''
               allowFullScreen='true'
               scrolling='no'
               frameBorder='no'></iframe>
@@ -271,6 +318,7 @@
       var app
       var scenes, sceneSprites, introVideoSprite
       var parallaxOffset = 0
+      var eventsList = []
 
       function Scene(id, background){
         this.id = id;
@@ -397,6 +445,10 @@
       // Set the visual for the points
       var point = new PIXI.Sprite(PIXI.Texture.fromImage("./cross.png"))
 
+      d3.json("events.json", function(error, events){
+        eventsList = events;
+      }) 
+
       // Load the points
       d3.json("incidents.geojson", function(error, incidents) {
         for(var i=0; i<incidents.features.length; i++){
@@ -409,11 +461,13 @@
           // Grid
           if(i <= incidents.features.length/2 - 1){
             $(".all-events .col-md-4:first-child").append("<div class='event-list-item'>\
+                <div class='title-date'></div>\
                 <h2>" + (i+1) + ". " + incidents.features[i].properties["Name"] + "</h2>\
                <p>" + incidents.features[i].properties["description"].substring(0,120) + "...</p><a>Lire la suite</a></div>\
             ")
           }else{
             $(".all-events .col-md-4:last-child").append("<div class='event-list-item'>\
+                <div class='title-date'></div>\
                 <h2>" + (i+1) + ". " + incidents.features[i].properties["Name"] + "</h2>\
                <p>" + incidents.features[i].properties["description"].substring(0,120) + "...</p><a>Lire la suite</a></div>\
             ")
@@ -437,9 +491,19 @@
 
           pointSprite.on('pointerdown', function(i, f){
             return function(){
+
               // Update the details
-              $(".map-description h2").text(f.properties["Name"])
-              $(".map-description p").text(f.properties["description"])
+              $(".map-description h2").text(eventsList[i]["title"])
+              $(".map-description .title-date").text(eventsList[i]["date"])
+              $(".map-description p").text(eventsList[i]["content"])
+              // Images
+              $(".map-description .images-list").empty();
+              for(var img in eventsList[i]["images"]){
+                var image = eventsList[i]["images"][img]
+                $(".map-description .images-list").append("<img src='" + image + "' />")
+              }
+              //Video
+              $(".map-description iframe").attr("src", eventsList[i]["video"])
 
               // Show the details
               $('.map-description').addClass('visible');
@@ -473,7 +537,7 @@
         }
       })
 
-      mapLake = new PIXI.Sprite(PIXI.Texture.fromImage("./map_lake_d.png"));
+      mapLake = new PIXI.Sprite(PIXI.Texture.fromImage("./map_lake.png"));
       mapLake.width = projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0];
       mapLake.height = projection(lemanBounds[1])[1] - projection(lemanBounds[0])[1];
       mapLake.x = projection(lemanBounds[0])[0];
@@ -523,8 +587,8 @@
             // Background and titles parallax
             if(mouseposition.x >= 0 && mouseposition.x <= app.screen.width
               && mouseposition.y >= 0 && mouseposition.y <= app.screen.height){
-              parallaxIt(mouseposition, mapBackground, -50);
-              //parallaxIt(mouseposition, mapContainer, -50);
+              sceneParallaxIt(mouseposition, mapBackground, -150);
+              parallaxIt(mouseposition, mapContainer, -250);
             }
 
 
@@ -533,10 +597,10 @@
              */
 
             // Map paper
-            mapContainer.y =
+            /*mapContainer.y =
             - (Math.sin(v*0.1)*Math.sin(v*0.2)*50)
             mapContainer.x =
-            - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)
+            - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)*/
             mapContainer.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/20
             mapContainer.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/20
 
@@ -566,8 +630,8 @@
 
         if( !transitionActive ){
           TweenMax.to(target, 1, {
-            x: (relX - $this.width() / 2) / $this.width() * movement,
-            y: (relY - $this.height() / 2) / $this.height() * movement - parallaxOffset
+            x: (relX - $this.width() / 2) / $this.width() * movement -100,
+            y: (relY - $this.height() / 2) / $this.height() * movement - parallaxOffset -100
           });
         }
       }
