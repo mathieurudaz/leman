@@ -428,20 +428,32 @@
           pointSprite.defaultCursor = 'pointer';
           pointSprite.anchor.set(0.5)
 
-          pointSprite.on('pointerdown', function(){
-            // Show the details
-            $('.map-description').addClass('visible');
-            // Blur the background and hide the map
-            blurFilter.blur = 40;
-            mapContainer.alpha = 0
-            $('#map-link').unbind("click")
-          });
+          pointSprite.on('pointerdown', function(i, f){
+            return function(){
+              // Update the details
+              $(".map-description h2").text(f.properties["Name"])
+              $(".map-description p").text(f.properties["description"])
+
+              // Show the details
+              $('.map-description').addClass('visible');
+              // Blur the background and hide the map
+              blurFilter.blur = 40;
+              TweenMax.to(mapContainer, 1, {alpha: 0})
+
+              // Bind a new event to the back button
+              $("#map-link").on("click", function(e){
+                e.preventDefault();
+                $('.map-description').removeClass('visible');
+                blurFilter.blur = 10;
+                TweenMax.to(mapContainer, 1, {alpha: 0.85})
+                $('#map-link').unbind("click")
+              })
+            }
+          }(i, incidents.features[i]));
 
           pointSprite.pointerover = function(i, f) {
             return function(){
               this.scale.set(1.2, 1.2)
-              $(".map-description h2").text(f.properties["Name"])
-              $(".map-description p").text(f.properties["description"])
               mapText.text = i + ". " + f.properties["Name"].toUpperCase();
             }
           }(i, incidents.features[i])
@@ -536,14 +548,6 @@
             displacementPaperSprite.y += 2;
       });
 
-      // Bind a new event to the back button
-      $("#map-link").on("click", function(e){
-        e.preventDefault();
-        $('.map-description').removeClass('visible');
-        blurFilter.blur = 10;
-        mapContainer.alpha = 0.85
-      })
-
       document.body.prepend(app.view);
 
       });
@@ -572,6 +576,10 @@
             y: (relY - $this.height() / 2) / $this.height() * movement
           });
         }
+      }
+
+      function showEvent(eventId, video){
+
       }
 
     </script>
