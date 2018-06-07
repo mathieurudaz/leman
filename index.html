@@ -39,7 +39,7 @@
       p{
         opacity: 0.85;
         font-size: 20px;
-        line-height: 1.75;
+        line-height: 1.65;
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         color: transparent;
@@ -61,22 +61,10 @@
 
       }
 
-      .videoWrapper {
-          height: 0;
-          overflow: hidden;
-          padding-bottom: 52.35%;
-          padding-top: 30px;
-          position: relative;
-          margin-top: 40px;
-      }
-
-      .videoWrapper iframe {
-          height: 100%;
-          left: 0;
-          position: absolute;
-          top: 0;
-          width: 100%;
-      }
+  .videoWrapper {
+    position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; }
+  .videoWrapper iframe, .videoWrapper object, .videoWrapper embed {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
       h2{
         font-family: "Poppins", sans-serif;
@@ -97,6 +85,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         color: #ffffff;
       }
 
@@ -154,6 +143,11 @@
         height: 200vh;
       }
 
+      /* Piper paper*/
+      #scene-8{
+        height: 200vh;
+      }
+
       .all-events h2{
         font-family: "Pathway Gothic one";
         text-transform: uppercase;
@@ -169,7 +163,7 @@
       .navbar a i{
         color: white;
         font-size: 20px;
-        margin-left: 6px;
+        margin-left: 20px;
       }
 
       @keyframes pulse-dot {
@@ -223,36 +217,52 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="author"><b>Texte et vidéos:</b> Fabien Grenon</div>
-          <p class="lettrine">“Le Rhône a sombré , engloutissant avec lui une douzaine de passagers qui ont été noyés...” Le 24 novembre 1883, la Feuille d’Avis de Lausanne noircit ses colonnes avec le récit d’un triste naufrage survenu la veille. Par une nuit de tempête où le vent soulève des vagues énormes, deux navires à vapeurs, le Cygne et le Rhône, ayant chacun dévié de leur route habituelle, entrent en collision. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombre dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage. Des passagers du Cygne, rescapés de la catastrophe, témoignent: “L’avant du Rhône plongea perpendiculairement dans le lac. On vit l’arrière se dresser comme une tour hors de l’eau, puis disparaître sous la quille même du Cygne. Le bateau avait coulé à pic au milieu d’un formidable tourbillon! Un seul cri s’était fait entendre, un cris sauvage, atroce. Un dernier bouillonnement de l’eau, puis plus rien.” Son épave découverte en 1984 repose aujourd’hui par 300 mètres de profondeur.</p>
+
+          <p class="lettrine">«Le “Rhône” a sombré, engloutissant avec lui une douzaine de passagers qui ont été noyés...» Le 24 novembre 1883, la “Feuille d’Avis de Lausanne” noircit ses colonnes avec le récit d’un triste naufrage survenu la veille. Par une nuit de tempête où le vent soulève des vagues énormes, deux navires à vapeur, le “Cygne” et le “Rhône”, ayant chacun dévié de leur route habituelle, entrent en collision. Le premier parvient, non sans difficulté, à rejoindre le port, mais le second, trop amoché, sombrera peu de temps après dans les abysses lémaniques, emportant avec lui onze passagers et trois membres d’équipage. Découverte en 1984 par 300 mètres de profondeur, son épave, relativement bien conservée, reste, pour les rares qui ont eu la chance de l’observer, l’une des plus impressionnantes du Léman.</p>
+
+          <p>Des naufrages comme celui-ci de bateaux piégés dans les tourbillons d’un lac déchaîné au crash d’un hydravion pris dans une tempête soudaine, en passant par l’amerrissage forcé d’une montgolfière mise à mal par la bise, ou la présence étrange de wagons gisant à plusieurs centaines de mètres de fond: derrière ses airs calmes et lisses, le Léman cache de nombreuses histoires oubliées ou méconnues aux conclusions parfois heureuses ou insolites, mais le plus souvent dramatiques. Autant de fantômes - tantôt plutôt sympathiques, tantôt plutôt angoissants - qu’une exposition itinérante se propose de remonter à la surface. Après les Bains des Pâquis cet hiver, c’est du côté de Saint-Gingolph que “Fantômes du Léman”, c’est son nom, vient de faire escale pour l’été (lire ci-dessous).</p>
         </div>
       </div>
-    </div>
 
-    <div id="scene-3b" class="container container_sp">
-      
-      <div id='video' class="video_container container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class='videoWrapper'>
-              <iframe
-                class='externalNNIFrame'
-                src='https://www.24heures.ch/extern/videoplayer/videoplayer-nn.html?params=client@tagesanzeiger|videoId@340590|showLogo@1|autoStart@1|mute@0|showAds@false|previewPath@https://server025.newsnetz.tv/340590/frame-25-340590.jpg|platform@desktop'
-                allowFullScreen='true'
-                scrolling='no'
-                frameBorder='no'></iframe>
-            </div>
+      <div class="row" style="width:100%;margin: 20px 0px 60px 0px;">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Le lac de tous les dangers</h2>
+          <div class='videoWrapper'>
+            <iframe
+              class='externalNNIFrame'
+              src='https://www.24heures.ch/extern/videoplayer/videoplayer-nn.html?params=client@tagesanzeiger|videoId@340590|showLogo@1|autoStart@0|mute@0|showAds@false|previewPath@https://server025.newsnetz.tv/340590/frame-25-340590.jpg|platform@desktop'
+              allowFullScreen='true'
+              scrolling='no'
+              frameBorder='no'></iframe>
           </div>
         </div>
       </div>
 
     </div>
 
+    <!--<div id="scene-3b" class="container container_sp">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h2>Le lac de tous les dangers</h2>
+          <div class='videoWrapper'>
+            <iframe
+              class='externalNNIFrame'
+              src='https://www.24heures.ch/extern/videoplayer/videoplayer-nn.html?params=client@tagesanzeiger|videoId@340590|showLogo@1|autoStart@0|mute@0|showAds@false|previewPath@https://server025.newsnetz.tv/340590/frame-25-340590.jpg|platform@desktop'
+              allowFullScreen='true'
+              scrolling='no'
+              frameBorder='no'></iframe>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
     <div id="scene-3c" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <p>Des naufrages de bateaux piégés dans les tourbillons d’un lac déchaîné, au crash d’un hydravion pris dans une tempête soudaine, en passant par l’amerrissage forcé d’une montgolfière mise à mal par la bise, ou la présence étrange de wagons dormant à plus de 300 mètres de profondeur. Derrière ses airs lisses et romantiques, le Léman cache de nombreuses histoires oubliées ou méconnues aux conclusions parfois heureuses et cocasses mais souvent dramatiques. Autant de fantômes perdus dans des limbes que l’on pensait inaccessibles et qu’une exposition itinérante attendue du côté de Saint-Gingolph cet été se propose de remonter à la surface.</p>
 
-          <p>“Le Léman peut être un lac très calme. Mais ce n’est pas un étang pour autant, confirme Lionel Gauthier, conservateur du Musée du Léman à Nyon. Il peut parfois s’énerver et se montrer impitoyable.” Il y a presque cinquante ans, le 18 août 1969, se jouait d’ailleurs au large de Thonon (F) l’une des tragédies les plus cruelles que le lac n’ait jamais connu. Par une journée ensoleillée mais venteuse, une cinquantaine de personnes, dont 25 petites orphelines d’une colonie de vacances, embarquent sur le petit bateau de plaisance la Fraidieu pour une petite croisière qui s’annonce plutôt bucoliques le long des côtes françaises. Mais à peine le port quitté, l’embarcation, chahutée par de grosses vagues, prend l’eau par l’arrière. Paniqués, les passagers sautent à l’eau. Vingt cinq d’entre eux y laisseront la vie, dont 14 petites filles de 11 à 14 ans. Deux pêcheurs interviennent pour leur porter secours. Parmi eux, Roland Condevaux âgé à l’époque de 25 ans. Son témoignage relaté dans la presse de l’époque fait froid dans le dos: “Dès que j’ai vu le navire s’enfoncer par l’arrière, j’ai mis le cap vers lui. J’ai hissé dans ma barque tous les corps qui me passaient sous la main. La première fois, j’ai ramené neuf personnes sur la rive. J’ai pratiqué la respiration artificielle à plusieurs d’entre elles. Au second voyage, j’ai ramené une femme inanimée, puis j’ai repêché encore deux fillettes”.</p>
+          <p>«Le lac fait partie de nous et de notre histoire. Et pourtant on oublie souvent qu’il a aussi sa part d’ombre», relève Philippe Constantin, coordinateur de l’Association d’usagers des Bains des Pâquis (AUBP), l’un des deux initiateurs du projet. Une idée qui a directement plu à Claude Martenet, directeur du Musée des barques et des traditions de Saint-Gingolph. «Dès que j’ai entendu parler de cette expo, je me suis dit qu’il nous la fallait ici», se réjouit-il. Il faut dire qu’en 1963 le village de Saint-Gingolph est marqué par un terrible naufrage, celui de l’«Aubonne», qui tue quatre de ses habitants. Un seul corps est repêché. «S’il a tendance à s’estomper, ce souvenir est toujours bien présent à Saint-Gingolph. Plusieurs familles avaient été touchées», rappelle Claude Martenet.</p>
+
+          <p>«Certes, notre lac est généralement calme, mais ce n’est pas un étang pour autant, abonde alors Lionel Gauthier, conservateur du Musée du Léman à Nyon, qui a étroitement collaboré au projet des «Fantômes du Léman». Les jours d’orage, il peut se montrer impitoyable.» Comme ce 18 août 1969, lorsque le petit bateau de plaisance «La Fraidieu», mis à mal par le vent, fait naufrage au large de Thonon (F). Une tragédie particulièrement cruelle, puisque vingt-cinq personnes se noieront, dont quatorze petites orphelines venues dans la région pour participer à une colonie de vacances. Roland Condevaux, l’un des deux pêcheurs qui sont intervenus sur le lieu de l’accident pour tenter de sauver les naufragés, n’oublie pas: «Ça s’est passé près du bord, mais le lac est tout de suite profond. On était là, à pêcher, et on est vite arrivés dessus. On a fait trois voyages entre le lieu du naufrage et la rive, mais on avait un si petit bateau pour tant de personnes!»</p>
         </div>
       </div>
     </div>
@@ -263,8 +273,7 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <h2>Une mer intérieure?</h2>
-          <p>La Bise, le Bornan, le Joran, le Vaudaire… Enchâssé entre les Alpes et le Jura, le Léman est balayé par une dizaine de vents différents évoluant au gré des saisons, mais aussi des heures de la journée. Des airs lémaniques rendant parfois sa traversée périlleuse. Même Eric Tabarly, célèbre navigateur français venu participé au Bol d’Or en 1991, l’avait reconnu: “On m’avait dit que le Léman était traître, mais je n’aurais jamais cru à ce point.” Certains n’hésitant d’ailleurs pas à le surnommer “La Petite mer des Alpes”.</p>
-          <p>“Je ne sais  pas si on peut aller jusqu’à dire que c’est une mer intérieure”, tempère Frédéric Glassey de Météonews. Mais une chose est sûre: le bassin lémanique est constituée d’une vaste étendue d’eau entourée de reliefs, vecteurs d’orages pouvant être localement violent.” Des coups de tabac difficiles à prévoir que redoutent les navigateurs les plus aguerris.</p>
+          <p>La bise, le bornan, le joran, la vaudaire… Il faut dire que, enchâssé entre les Alpes et le Jura, la «Petite mer des Alpes», comme beaucoup aiment à surnommer le Léman, est balayée par une dizaine de vents différents évoluant au gré des saisons mais aussi au gré des heures de la journée. «Le bassin lémanique est entouré de reliefs, vecteurs d’orages pouvant être localement très violents et difficiles à voir venir», confirme Frédéric Glassey, de Meteonews. De sacrés coups de tabac d’ailleurs bien connus et redoutés par les navigateurs. Même les plus aguerris: Éric Tabarly, célèbre navigateur français venu participer au Bol d’Or en 1991, l’avait admis: «On m’avait dit que le Léman était traître, mais je n’aurais jamais cru à ce point.»</p>
         </div>
       </div>
     </div>
@@ -275,9 +284,28 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <h2>Des erreurs humaines</h2>
-          <p>Mais Dame nature n’est pas seule responsable. Le fourvoiement des hommes est à l’origine également de bien des histoires malheureuses. A l’instar du naufrage de l’Hirondelle le 10 juin 1862 au large de la Tour-de-Peilz, après que sa coque a touché, dans une manoeuvre maladroite, les fonds rocheux, peu profonds à cet endroit-là. Si ses quelques 300 passagers ont pu tous être secourus sans encombre ou presque, l’élégant navire à vapeur n’a pas eu cette chance. Après de nombreuses tentatives de renflouage, l’Hirondelle alors échoué sur des rochers sombrera définitivement deux mois plus tard, victime d’une tempête nocturne. “Dans la journée de samedi, les travaux de sauvetage de l’Hirondelle avaient réussi à ramener le navire passablement hors de l’eau; malheureusement la nuit interrompit les travaux, une bourrasque survint et l’Hirondelle fut de nouveau complètement submergée. Elle a, dit-on, disparu complètement dans le lac”, écrit-on dans la Feuille d’Avis de Lausanne à l’époque. Son épave bien connue des plongeurs lacustres repose aujourd’hui à près de 60 mètres de profondeur.</p>
-          <p>Aujourd’hui, les catastrophes et les tragédies, le Léman en connaît de moins en moins. Motorisation des bateaux, moyens de communication plus efficaces, images satellite permettant de mieux prédire la météo: le domaine de la navigation a connu ces dernière décennies une véritable révolution. “Il y a encore pas si longtemps, avant l’apparition de la radio, c’est à la fusée que les secours étaient appelés. Et ensuite, c’était à la rame que ces derniers intervenaient”, rappelle alors Michel Detrey, président de la Société internationale de sauvetage du Léman (SISL), dont toutes les sections régionales confondues sont intervenues près de 820 fois en 2017.</p>
-          <p>Sans compter qu’au fil des années et des tragédies, les règles de sécurité n’ont eu de cesse de s’affiner.  “A chaque accidents, on a tiré des enseignements, ce qui a aussi aussi permis d’améliorer la sécurité sur le lac”, continue Michel Detrey. A noter d’ailleurs que c’est après la collision du Rhône et du Cygne que la nécessité de structurer et de mutualiser le sauvetage sur le lac est apparue. D’où la création, le 6 juin 1885, de la SISL regroupant aujourd’hui 34 sections locales réparties entre le Valais, Vaud, Genève et la France.</p>
+          <p>Mais dame Nature n’est pas toujours seule responsable. Le fourvoiement des hommes est également à l’origine de bien des histoires malheureuses. À l’instar du naufrage de l’«Hirondelle», le 10 juin 1862, au large de La Tour-de-Peilz, après que sa coque touche, dans une manœuvre maladroite, les fonds rocheux peu profonds à cet endroit. Si ses quelque 300 passagers sont tous secourus, l’élégant navire à vapeur n’a pas cette chance. Après de nombreuses tentatives de renflouage, l’«Hirondelle», alors échouée sur des récifs, sombrera définitivement deux mois plus tard, victime d’une tempête nocturne. Depuis, son épave bien connue des plongeurs lacustres repose à quelque 60 mètres de profondeur.</p>
+          <p>Mais les grosses catastrophes de ce genre, le Léman n’en a plus connues depuis longtemps. Motorisation des bateaux, radio, images satellites, radar: depuis une cinquantaine d’années, le domaine de la navigation connaît une véritable révolution.«Avant l’apparition de la radio - il n’y a pas encore si longtemps - c’était à la fusée que les secours étaient appelés. Et ensuite, c’était à la rame que ces derniers partaient à l’assaut du lac», rappelle par exemple Michel Detrey, président de la Société internationale de sauvetage du Léman (SISL).</p>
+        </div>
+      </div>
+
+      <div class="row" style="width:100%;margin: 20px 0px 60px 0px;">
+        <div class="col-md-10 col-md-offset-1">
+          <h2>Titre video sous-marin</h2>
+          <div class='videoWrapper'>
+            <iframe
+              class='externalNNIFrame'
+              src='https://www.24heures.ch/extern/videoplayer/videoplayer-nn.html?params=client@tagesanzeiger|videoId@340590|showLogo@1|autoStart@0|mute@0|showAds@false|previewPath@https://server025.newsnetz.tv/340590/frame-25-340590.jpg|platform@desktop'
+              allowFullScreen='true'
+              scrolling='no'
+              frameBorder='no'></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <p>Sans compter qu’au fil des années et des tragédies, les règles de sécurité n’ont eu de cesse de s’affiner sur le Léman. «Comme on dit, on est toujours plus intelligent après. À chaque accident, on a tiré de nombreux enseignements», continue-t-il. C’est d’ailleurs après la collision du «Rhône» et du «Cygne» en 1883 que la nécessité de structurer et de fédérer le sauvetage sur le lac est apparue. D’où la création, le 6 juin 1885, de la SISL regroupant aujourd’hui 34 sections locales réparties entre le Valais, Vaud, Genève et la France. Aussi tristes qu’elles aient pu être, il faut se dire que ces tragédies ne se sont pas produites pour rien. «Elles nous ont permis, peut-être, d’en éviter plein d’autres», conclut le président de la SISL.</p>
         </div>
       </div>
     </div>
@@ -287,10 +315,9 @@
     <div id="scene-9" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3" style="padding-bottom: 140px;">
-          <h2>Titre exposition</h2>
-          <p>L’exposition gratuite des “Fantômes du Léman” qui s’est installée en janvier dernier aux Bains des Pâquis à Genève ne devait avoir qu’une durée de vie limitée. Mais victime de son succès, elle a été prolongée et connaîtra une seconde existence. En effet, plusieurs localités du pourtour lémanique ont manifesté le désir de l’accueillir. En juin prochain, c’est à Saint-Gingolph (VS) qu’elle fera escale pour l’été, avant de caboter le long des côtes en 2019 et 2020. Si rien n’a encore été signé, Morges et Nyon devraient suivre le pas.</p>
-          <p>“Ce qui interpelle et passionne les foules, c’est ce décalage entre une image de lac tranquille d’un côté et les violentes catastrophes qui ont pu s’y dérouler de l’autre”, explique Philippe Constantin, coordinateur de l’Association des utilisateurs des Bains des Pâquis à Genève (AUBP), à l’origine du projet avec son collègue en charge de l’animation culturelle, Michel-Félix de Vidas. Sans compter que pour nous qui vivons autour du lac, tous ces drames font véritablement partie de notre histoire.”</p>
-          <p>L’idée a germé il y trois ans, lorsque Michel-Félix de Vidas a accès aux vidéos des explorations des fonds lémaniques menées en 2011 par les deux sous-marins russes MIR. “On y voyait pas grand chose, d’où notre volonté d’approfondir le sujet, car on savait que beaucoup de choses reposent au  fond du lac.” Après avoir un peu fouiller les archives de la presse de l’époque, avoir consulter les archives du Musée du Léman et sorti quelques squelettes du placard: “les fantômes du Léman” prend forme. Mais pas question de faire de cette exposition une simple énumération de catastrophe. “L’idée était d’incarner un maximum ces histoires, et de ne pas s’arrêter uniquement à celles qui sont tragiques. C’est pourquoi notre exposition relate également des choses plus insolite ou plus poétique.”</p>
+          <h2>Après Genève, Saint-Gingolph</h2>
+          <p>L’exposition gratuite et en plein air des «Fantômes du lac», qui a vu le jour cet hiver du côté des Bains des Pâquis à Genève, ne devait avoir qu’une durée de vie limitée. Mais au vu de son succès, plusieurs localités du pourtour lémanique se sont montrées intéressées à l’accueillir. Elle vient d’ailleurs de faire escale jusqu’au 30 septembre dans le port de la Bâtiaz à Saint-Gingolph, sous l’impulsion de Claude Martenet, directeur du Musée des barques et des traditions situé justement dans le village du Haut-Lac. Après quoi elle devrait s’arrêter du côté de Chillon.«Ce qui interpelle et passionne les foules, c’est ce décalage entre une image de lac tranquille d’un côté et les violentes catastrophes qui ont pu s’y dérouler de l’autre», explique Philippe Constantin, coordinateur de l’Association des utilisateurs des Bains des Pâquis à Genève (AUBP), à l’origine du projet avec son collègue chargé de l’animation culturelle, Michel-Félix de Vidas.</p>
+          <p>L’idée a germé il y a trois ans, lorsque les deux compères ont accès aux vidéos des explorations des fonds lémaniques menées en 2011 par les deux sous-marins russes Mir. «On n’y voyait pas grand-chose, mais on savait que beaucoup de choses reposaient au  fond. On a alors voulu approfondir le sujet», raconte Philippe Constantin. Après avoir fouillé les archives de la presse de l’époque, visionné des vidéos des fonds, rencontré des passionné et consulté les archives du Musée du Léman, l’expo des «Fantômes du Léman» prend forme. Mais pas question d’en faire une simple énumération de catastrophes. «L’idée était d’incarner ces histoires au maximum sans être trop répétitifs. C’est pourquoi nous avons choisi d’en raconter certaines plutôt que d’autres. Et celles-ci ne sont pas toujours tragiques, mais sont parfois plus insolites ou poétiques.»</p>
         </div>
       </div>
     </div>
@@ -299,7 +326,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-5 text-left">
-            <a class="menu-link" id="map-link" href="map.html"><i class="mdi mdi-map"></i>La carte<span class="hidden-xs"> des événements</span></a>
+            <a class="menu-link" id="map-link" href="map.html"><i class="mdi mdi-map"></i>&nbsp;&nbsp;La carte<span class="hidden-xs"> des événements</span></a>
           </div>
           <div class="col-xs-2 text-center">
             <!--<div class="mdi mdi-navigation up"></div>
@@ -310,6 +337,7 @@
         </div>
       </div>
     </div>
+    <script src="scripts/modernizr-custom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
@@ -336,17 +364,16 @@
       var blurFilter = new PIXI.filters.BlurFilter();
       var backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
       var noiseFilter = new PIXI.filters.NoiseFilter();
-      var testBlur = new PIXI.filters.TiltShiftFilter();
       var title
       var depth
       var app
       var scenes, sceneSprites, introVideoSprite
-      var pointerMask, pointerMaskTexture, pointerMaskSprite
       var parallaxOffset = 0
       var introPaper, videoPaper
       var introPaperXOffset = introPaperYOffset = 0
       var fraidieuPaperXOffset = fraidieuPaperYOffset = 0
-      var videoPaperXOffset = videoPaperYOffset = 0
+      var piperPaperXOffset = piperPaperYOffset = 0
+      //var videoPaperXOffset = videoPaperYOffset = 0
 
 
       function Scene(id, background){
@@ -370,14 +397,6 @@
         textWidth = 400
       }
 
-      // Load the intro video
-      var video = document.createElement("video");
-      video.preload = "auto";
-      video.muted = true;
-      video.loop = true;
-      video.src = "./scenes/intro.mp4";
-      video.poster = "./intro-poster.jpg";
-
       // Create the PIXI App
       app = new PIXI.Application({
           width: width,
@@ -392,10 +411,7 @@
       //background.scale.x = 1;
       //background.scale.y = 1;
       app.stage.addChild(background);
-    
-
-      // create a video texture from a path
-      introVideoSprite = new PIXI.Sprite(PIXI.Texture.fromVideo(video));
+  
 
       scenes = {
         "intro": new Scene(),
@@ -424,11 +440,11 @@
       introPaper.pivot.y = introPaper.height * 0.5;
 
       // Video newspaper
-      videoPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-03.jpg"));
+      /*videoPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-03.jpg"));
       videoPaperXOffset = app.screen.width/2 - 150;
       videoPaperYOffset = app.screen.height + 100;
       videoPaper.pivot.x = videoPaper.width * 0.5;
-      videoPaper.pivot.y = videoPaper.height * 0.5;
+      videoPaper.pivot.y = videoPaper.height * 0.5;*/
 
       // Fraidieu newspaper
       fraidieuPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-02.jpg"));
@@ -437,11 +453,12 @@
       fraidieuPaper.pivot.x = fraidieuPaper.width * 0.5;
       fraidieuPaper.pivot.y = fraidieuPaper.height * 0.5;
 
-      // Intro video
-      introVideoSprite.width = app.screen.width + 200;
-      introVideoSprite.height = app.screen.height + 200;
-      introVideoSprite.x = -100;
-      introVideoSprite.y = -100;
+      // Piper newspaper
+      piperPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-03.jpg"));
+      piperPaperXOffset = app.screen.width/2 - 150;
+      piperPaperYOffset = app.screen.height + 100;
+      piperPaper.pivot.x = piperPaper.width * 0.5;
+      piperPaper.pivot.y = piperPaper.height * 0.5;
 
       // Dive
       sceneSprites[0].width = app.screen.width + 200;
@@ -480,7 +497,7 @@
       blurFilter = new PIXI.filters.BlurFilter();
       backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
       noiseFilter = new PIXI.filters.NoiseFilter();
-      blurFilter.blur = 1;
+      blurFilter.blur = 0;
       backgroundBlurFilter.blur = 10
       backgroundBlurFilter.gradientBlur = 200
       noiseFilter.noise = 0.075;
@@ -505,10 +522,11 @@
       app.stage.addChild(displacementPaperSprite);
 
       // Apply filters
-      background.filters = [displacementFilter, backgroundBlurFilter, noiseFilter];
+      background.filters = [displacementFilter, blurFilter, noiseFilter];
       introPaper.filters = [displacementPaperFilter, noiseFilter]
-      videoPaper.filters = [displacementPaperFilter, noiseFilter]
+      //videoPaper.filters = [displacementPaperFilter, noiseFilter]
       fraidieuPaper.filters = [displacementPaperFilter, noiseFilter]
+      piperPaper.filters = [displacementPaperFilter, noiseFilter]
 
       // Main title
       title = new PIXI.Graphics()
@@ -537,10 +555,6 @@
       background.addChild(sceneSprites[3])
       background.addChild(sceneSprites[2])
       background.addChild(sceneSprites[1])
-      background.addChild(introVideoSprite)
-
-      testBlur.blur = 10
-      testBlur.gradientBlur = 100
 
       var v = 0
 
@@ -568,12 +582,12 @@
             introPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
 
             // Video paper
-            videoPaper.y =
+            /*videoPaper.y =
             - (Math.sin(v*0.1)*Math.sin(v*0.2)*50) + videoPaperYOffset
             videoPaper.x =
             - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)  + videoPaperXOffset
             videoPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
-            videoPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
+            videoPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10*/
 
             // Fraidieu paper
             fraidieuPaper.y =
@@ -582,6 +596,14 @@
             - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)  + fraidieuPaperXOffset
             fraidieuPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
             fraidieuPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
+
+            // Piper paper
+            piperPaper.y =
+            - (Math.sin(v*0.1)*Math.sin(v*0.2)*50) + piperPaperYOffset
+            piperPaper.x =
+            - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)  + piperPaperXOffset
+            piperPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
+            piperPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
 
             // Backround movement added to the parallax
             TweenMax.to(background, 1, {
@@ -829,6 +851,9 @@
           triggerHook: 0.75
       })
       .on("enter", function(){
+
+        $(".footer .mdi-navigation.down").fadeOut()
+
         // Fade out the title
         TweenMax.to(title, 0.75, {alpha:0,
           onComplete: function(){
@@ -836,9 +861,8 @@
           }})
 
         // Add blur filter
-        TweenMax.to(backgroundBlurFilter, 0.75, {
-          blur:20,
-          gradientBlur:0,
+        TweenMax.to(blurFilter, 1.5, {
+          blur:10,
           onComplete: function(){
             app.stage.removeChild(title)
           }})
@@ -850,7 +874,7 @@
       /**
        * Create scene #3b (Video paper)
        */
-
+/*
       new ScrollMagic.Scene({
           triggerElement: "#scene-3b",
           triggerHook: 0.55,
@@ -897,7 +921,7 @@
       })
       .addIndicators({name: "Video", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
-
+*/
 
       /**
        * Create scene #3c (Text)
@@ -908,11 +932,11 @@
           triggerHook: 0.75
       })
       .on("enter", function(){
-        // Fade out the title
-        TweenMax.to(videoPaper, 0.75, {alpha:0,
+        // Fade out the paper
+        /*TweenMax.to(videoPaper, 0.75, {alpha:0,
           onComplete: function(){
             app.stage.removeChild(videoPaper)
-          }})
+          }})*/
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
@@ -934,8 +958,8 @@
         transitionActive = true;
 
         console.log("Background transition")
-
         console.log("Show press")
+
         fraidieuPaper.opacity = 1
         app.stage.addChild(fraidieuPaper)
         parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
@@ -950,9 +974,10 @@
         baseTimeline.clear();
         if(baseTimeline.isActive()) { return; }        
         baseTimeline
-          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
-          .to(sceneSprites[2], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
-          .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
+          .to(blurFilter, 0.75, {blur:0}) // Focus
+          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  }, "-=0.75") // transition
+          .to(sceneSprites[1], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4) // new scene
+          .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 ); // transition
 
       })
       .addIndicators({name: "Article de presse Frédieux", colorTrigger:"#ffff00", colorStart:"#ffff00"})
@@ -973,6 +998,14 @@
           onComplete: function(){
             app.stage.removeChild(fraidieuPaper)
           }})
+
+        // Add blur filter
+        TweenMax.to(blurFilter, 1.5, {
+          blur:10,
+          onComplete: function(){
+            app.stage.removeChild(title)
+          }})
+
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
@@ -1004,7 +1037,8 @@
         baseTimeline.clear();
         if(baseTimeline.isActive()) { return; }        
         baseTimeline
-          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
+          .to(blurFilter, 0.75, {blur:0}) // Focus
+          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  }, "-=0.75")
           .to(sceneSprites[3], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
           .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
       })
@@ -1026,6 +1060,13 @@
           onComplete: function(){
             app.stage.removeChild(title)
           }})
+
+        // Add blur filter
+        TweenMax.to(blurFilter, 1.5, {
+          blur:10,
+          onComplete: function(){
+            app.stage.removeChild(title)
+          }})
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
@@ -1037,20 +1078,59 @@
 
       new ScrollMagic.Scene({
           triggerElement: "#scene-8",
+          triggerHook: 0.55,
+          duration: $("#scene-8").height()
+      })
+      .on("progress", function(e){
+        piperPaperYOffset = app.screen.height - (e.progress * 1000)
+      })
+      .on("enter", function(){
+
+        transitionActive = true;
+
+        console.log("Background transition")
+        console.log("Show piper")
+        piperPaper.opacity = 1
+        app.stage.addChild(piperPaper)
+        //parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
+        //transitionActive = false;
+        
+        // Background transition
+        var baseTimeline = new TimelineMax({
+          onComplete: function () {
+            transitionActive = false;     
+           }
+        });
+        
+        baseTimeline.clear();
+        
+        if ( baseTimeline.isActive() ) {
+          return;
+        }        
+        baseTimeline
+          .to(blurFilter, 0.75, {blur:0}) // Focus
+          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  }, "-=0.75")
+          .to(sceneSprites[1], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
+          .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
+      })
+      .addIndicators({name: "Video", colorTrigger:"#ffff00", colorStart:"#ffff00"})
+      .addTo(scrollController);
+
+/*
+      new ScrollMagic.Scene({
+          triggerElement: "#scene-8",
           triggerHook: 0.25
       })
       .on("enter", function(){
         transitionActive = true;
 
+        piperPaper.opacity = 1
+        app.stage.addChild(piperPaper)
+
         var baseTimeline = new TimelineMax({
           onComplete: function () {
             console.log("animation complete")
             transitionActive = false;
-            /*title = createWreckTitle("Une épave de bateau", "23 novembre 1883")
-            title.alpha = 0;
-            app.stage.addChild(title)
-            title.filters = [displacementTextFilter];
-            TweenMax.to(title, 1, {alpha:0.75})*/
           }
         });
         baseTimeline.clear();
@@ -1060,9 +1140,12 @@
           .to(sceneSprites[4], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
           .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
       })
+      .on("progress", function(e){
+        piperPaperYOffset = app.screen.height - (e.progress * 1000)
+      })
       .addIndicators({name: "Wreck", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
-
+*/
 
       /**
        * Create scene #9 (Text)
@@ -1073,10 +1156,10 @@
           triggerHook: 0.75
       })
       .on("enter", function(){
-        // Fade out the title
-        TweenMax.to(title, 0.75, {alpha:0,
+        // Fade out the paper
+        TweenMax.to(piperPaper, 0.75, {alpha:0,
           onComplete: function(){
-            app.stage.removeChild(title)
+            app.stage.removeChild(piperPaper)
           }})
       })
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
@@ -1089,9 +1172,32 @@
         app.renderer.resize(window.innerWidth, window.innerHeight)
       })
 
-      $("scene-3b").on("click", function(){
+      Modernizr.on('videoautoplay', function(result){
+        if(result) {
 
-      })
+          // Load the intro video
+          var video = document.createElement("video");
+          video.preload = "auto";
+          video.muted = true;
+          video.loop = true;
+          video.src = "./scenes/intro.mp4";
+
+          // create a video texture from a path
+          introVideoSprite = new PIXI.Sprite(PIXI.Texture.fromVideo(video));
+
+        }  else {
+          introVideoSprite = new PIXI.Sprite(PIXI.Texture.fromImage("./intro-poster.jpg"));
+
+        }
+
+        // Intro video
+        introVideoSprite.width = app.screen.width + 200;
+        introVideoSprite.height = app.screen.height + 200;
+        introVideoSprite.x = -100;
+        introVideoSprite.y = -100;
+
+        background.addChild(introVideoSprite)        
+      });
 
     </script>
 </body>
