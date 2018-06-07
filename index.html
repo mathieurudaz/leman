@@ -148,6 +148,10 @@
         height: 200vh;
       }
 
+      #scene-6{
+        height: 200vh;
+      }
+
       .all-events h2{
         font-family: "Pathway Gothic one";
         text-transform: uppercase;
@@ -240,22 +244,6 @@
 
     </div>
 
-    <!--<div id="scene-3b" class="container container_sp">
-      <div class="row">
-        <div class="col-md-offset-1 col-md-10">
-          <h2>Le lac de tous les dangers</h2>
-          <div class='videoWrapper'>
-            <iframe
-              class='externalNNIFrame'
-              src='https://www.24heures.ch/extern/videoplayer/videoplayer-nn.html?params=client@tagesanzeiger|videoId@340590|showLogo@1|autoStart@0|mute@0|showAds@false|previewPath@https://server025.newsnetz.tv/340590/frame-25-340590.jpg|platform@desktop'
-              allowFullScreen='true'
-              scrolling='no'
-              frameBorder='no'></iframe>
-          </div>
-        </div>
-      </div>
-    </div>-->
-
     <div id="scene-3c" class="container container_sp">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
@@ -329,8 +317,6 @@
             <a class="menu-link" id="map-link" href="map.html"><i class="mdi mdi-map"></i>&nbsp;&nbsp;La carte<span class="hidden-xs"> des événements</span></a>
           </div>
           <div class="col-xs-2 text-center">
-            <!--<div class="mdi mdi-navigation up"></div>
-            <div class="pagination">1</div>-->
             <div class="mdi mdi-navigation down"></div>
           </div>
           <div class="col-xs-5 text-right">En savoir plus</div>
@@ -339,7 +325,6 @@
     </div>
     <script src="scripts/modernizr-custom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.4/TimelineMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.7.0/pixi.min.js"></script>
@@ -362,7 +347,6 @@
       var depthTranstionActive = false;
       var background
       var blurFilter = new PIXI.filters.BlurFilter();
-      var backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
       var noiseFilter = new PIXI.filters.NoiseFilter();
       var title
       var depth
@@ -439,13 +423,6 @@
       introPaper.pivot.x = introPaper.width * 0.5;
       introPaper.pivot.y = introPaper.height * 0.5;
 
-      // Video newspaper
-      /*videoPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-03.jpg"));
-      videoPaperXOffset = app.screen.width/2 - 150;
-      videoPaperYOffset = app.screen.height + 100;
-      videoPaper.pivot.x = videoPaper.width * 0.5;
-      videoPaper.pivot.y = videoPaper.height * 0.5;*/
-
       // Fraidieu newspaper
       fraidieuPaper = new PIXI.Sprite(PIXI.Texture.fromImage("./press-02.jpg"));
       fraidieuPaperXOffset = app.screen.width/2 - 150;
@@ -477,6 +454,7 @@
       sceneSprites[2].height = app.screen.height + 200;
       sceneSprites[2].x = -100;
       sceneSprites[2].y = (app.screen.height+100) + 9000;
+      sceneSprites[2].alpha = 0;
 
       // Hirondelle
       sceneSprites[3].width = app.screen.width + 200;
@@ -495,11 +473,8 @@
       sceneSprites[5].y = (app.screen.height+100) + 9000;
 
       blurFilter = new PIXI.filters.BlurFilter();
-      backgroundBlurFilter = new PIXI.filters.TiltShiftFilter();
       noiseFilter = new PIXI.filters.NoiseFilter();
       blurFilter.blur = 0;
-      backgroundBlurFilter.blur = 10
-      backgroundBlurFilter.gradientBlur = 200
       noiseFilter.noise = 0.075;
 
       // Background and elements water effect
@@ -521,10 +496,11 @@
       displacementPaperFilter.map.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
       app.stage.addChild(displacementPaperSprite);
 
+      displacementFilter.scale = {x:0, y:0}
+
       // Apply filters
       background.filters = [displacementFilter, blurFilter, noiseFilter];
       introPaper.filters = [displacementPaperFilter, noiseFilter]
-      //videoPaper.filters = [displacementPaperFilter, noiseFilter]
       fraidieuPaper.filters = [displacementPaperFilter, noiseFilter]
       piperPaper.filters = [displacementPaperFilter, noiseFilter]
 
@@ -580,14 +556,6 @@
             - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)  + introPaperXOffset
             introPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
             introPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10
-
-            // Video paper
-            /*videoPaper.y =
-            - (Math.sin(v*0.1)*Math.sin(v*0.2)*50) + videoPaperYOffset
-            videoPaper.x =
-            - (Math.sin(v*0.15)*Math.sin(v*0.3)*50)  + videoPaperXOffset
-            videoPaper.skew.x =  Math.sin(v*0.1)*Math.sin(v*0.2)/10
-            videoPaper.skew.y =  Math.sin(v*0.15)*Math.sin(v*0.3)/10*/
 
             // Fraidieu paper
             fraidieuPaper.y =
@@ -872,58 +840,6 @@
 
 
       /**
-       * Create scene #3b (Video paper)
-       */
-/*
-      new ScrollMagic.Scene({
-          triggerElement: "#scene-3b",
-          triggerHook: 0.55,
-          duration: $("#scene-3b").height()
-      })
-      .on("progress", function(e){
-        videoPaperYOffset = app.screen.height - (e.progress * 1000)
-      })
-      .on("enter", function(){
-
-        transitionActive = true;
-
-        // Change blur filter
-        TweenMax.to(backgroundBlurFilter, 0.75, {
-          blur:10,
-          gradientBlur:100,
-          onComplete: function(){
-            app.stage.removeChild(title)
-          }})
-
-        console.log("Background transition")
-        console.log("Show video")
-        videoPaper.opacity = 1
-        app.stage.addChild(videoPaper)
-        //parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
-        //transitionActive = false;
-        
-        // Background transition
-        var baseTimeline = new TimelineMax({
-          onComplete: function () {
-            transitionActive = false;     
-           }
-        });
-        
-        baseTimeline.clear();
-        
-        if ( baseTimeline.isActive() ) {
-          return;
-        }        
-        baseTimeline
-        .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
-        .to(sceneSprites[1], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
-        .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
-      })
-      .addIndicators({name: "Video", colorTrigger:"#ffff00", colorStart:"#ffff00"})
-      .addTo(scrollController);
-*/
-
-      /**
        * Create scene #3c (Text)
        */
 
@@ -931,13 +847,7 @@
           triggerElement: "#scene-3c",
           triggerHook: 0.75
       })
-      .on("enter", function(){
-        // Fade out the paper
-        /*TweenMax.to(videoPaper, 0.75, {alpha:0,
-          onComplete: function(){
-            app.stage.removeChild(videoPaper)
-          }})*/
-      })
+      .on("enter", function(){})
       .addIndicators({name: "Text", colorTrigger:"#00ffff", colorStart:"#00ffff"})
       .addTo(scrollController);
 
@@ -1020,6 +930,10 @@
           triggerHook: 0.25
       })
       .on("enter", function(){
+
+        $(".footer .mdi-navigation.down").fadeIn()
+
+
         transitionActive = true;
 
         title = createWreckTitle("l'Hirondelle", "10 juin 1862")
@@ -1055,6 +969,9 @@
           triggerHook: 0.75
       })
       .on("enter", function(){
+
+        $(".footer .mdi-navigation.down").fadeOut()
+
         // Fade out the title
         TweenMax.to(title, 0.75, {alpha:0,
           onComplete: function(){
@@ -1092,8 +1009,6 @@
         console.log("Show piper")
         piperPaper.opacity = 1
         app.stage.addChild(piperPaper)
-        //parallaxOffset =  sceneSprites[0].height + introVideoSprite.height
-        //transitionActive = false;
         
         // Background transition
         var baseTimeline = new TimelineMax({
@@ -1116,36 +1031,6 @@
       .addIndicators({name: "Video", colorTrigger:"#ffff00", colorStart:"#ffff00"})
       .addTo(scrollController);
 
-/*
-      new ScrollMagic.Scene({
-          triggerElement: "#scene-8",
-          triggerHook: 0.25
-      })
-      .on("enter", function(){
-        transitionActive = true;
-
-        piperPaper.opacity = 1
-        app.stage.addChild(piperPaper)
-
-        var baseTimeline = new TimelineMax({
-          onComplete: function () {
-            console.log("animation complete")
-            transitionActive = false;
-          }
-        });
-        baseTimeline.clear();
-        if(baseTimeline.isActive()) { return; }        
-        baseTimeline
-          .to(displacementFilter.scale, 0.8, { x: 5000, y: 5000, ease: Power2.easeIn  })
-          .to(sceneSprites[4], 0.5, { alpha: 0, ease: Power2.easeOut }, 0.4)
-          .to(displacementFilter.scale, 0.7, { x: 10, y: 10, ease: Power1.easeOut }, 0.9 );
-      })
-      .on("progress", function(e){
-        piperPaperYOffset = app.screen.height - (e.progress * 1000)
-      })
-      .addIndicators({name: "Wreck", colorTrigger:"#ffff00", colorStart:"#ffff00"})
-      .addTo(scrollController);
-*/
 
       /**
        * Create scene #9 (Text)

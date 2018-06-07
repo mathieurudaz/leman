@@ -124,7 +124,7 @@
 
       .map-description{
         padding-top: 100px;
-        display: block;
+        display: flex;
         justify-content: center;
         align-items: center;
         overflow-y: scroll;
@@ -152,10 +152,6 @@
         opacity: 0.85;
         text-shadow: none;
         color: #ffffff;
-      }
-
-      .event-list-item{
-        display: block;
       }
 
       .navbar a i{
@@ -303,9 +299,6 @@
           autoresize: true
       });
 
-      app.renderer.plugins.interaction.autoPreventDefault = false;
-
-
       background = new PIXI.Container();
       app.stage.addChild(background);
 
@@ -407,15 +400,15 @@
            */
 
           // Grid
-          if(i <= incidents.features.length/2 - 1){
-            $(".all-events .col-md-4:first-child").append("<div class='event-list-item'>\
+          if(i <= incidents.features.length/2){
+            $(".all-events .col-md-4:first-child").append("\
                 <h2>" + (i+1) + ". " + incidents.features[i].properties["Name"] + "</h2>\
-               <p>" + incidents.features[i].properties["description"].substring(0,120) + "...</p><a>Lire la suite</a></div>\
+               <p>" + incidents.features[i].properties["description"] + "</p>\
             ")
           }else{
-            $(".all-events .col-md-4:last-child").append("<div class='event-list-item'>\
+            $(".all-events .col-md-4:last-child").append("\
                 <h2>" + (i+1) + ". " + incidents.features[i].properties["Name"] + "</h2>\
-               <p>" + incidents.features[i].properties["description"].substring(0,120) + "...</p><a>Lire la suite</a></div>\
+               <p>" + incidents.features[i].properties["description"] + "</p>\
             ")
           }
 
@@ -523,8 +516,8 @@
             // Background and titles parallax
             if(mouseposition.x >= 0 && mouseposition.x <= app.screen.width
               && mouseposition.y >= 0 && mouseposition.y <= app.screen.height){
-              parallaxIt(mouseposition, mapBackground, -50);
-              //parallaxIt(mouseposition, mapContainer, -50);
+              parallaxIt(mouseposition, mapBackground, -100);
+              parallaxIt(mouseposition, mapContainer, -50);
             }
 
 
