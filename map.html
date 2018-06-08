@@ -36,6 +36,7 @@
         height: 100%;
         font-family: "Montserrat", sans-serif;
         background-color: #252525;
+        overflow-x: hidden;
       }
       p a{
         color: inherit;
@@ -56,6 +57,11 @@
 
       p.lettrine::first-letter {
 
+      }
+
+      .images-list{
+        text-align: center;
+        padding-top: 50px;
       }
 
   .videoWrapper {
@@ -399,25 +405,6 @@
       map.scale.x = mapScale
       map.scale.y = mapScale
 
-      // Create the map title
-      mapText = new PIXI.Text("Les événements".toUpperCase(), {
-          fontFamily: 'Pathway Gothic One',
-          fontSize: "30px",
-          fontWeight: "400",
-          letterSpacing: 0,
-          fill: "#161616",
-          align: 'center',
-          lineHeight: 1,
-          padding: 30
-      });
-      mapText.anchor.x = 0.5;
-      mapText.anchor.y = 0.5;
-      mapText.alpha = 0.95
-      mapText.x = app.screen.width/2;
-      mapText.y = (app.screen.height / 2) - (mapHeight * mapScale / 2) + (mapHeight*mapScale/10);
-
-      console.log(map.y)
-
       projection
           .scale(1)
           .translate([0, 0]);
@@ -537,18 +524,40 @@
         }
       })
 
+      // Create the map paper
       mapLake = new PIXI.Sprite(PIXI.Texture.fromImage("./map_lake.png"));
       mapLake.width = projection(lemanBounds[1])[0] - projection(lemanBounds[0])[0];
       mapLake.height = projection(lemanBounds[1])[1] - projection(lemanBounds[0])[1];
       mapLake.x = projection(lemanBounds[0])[0];
       mapLake.y = projection(lemanBounds[1])[1];
-
       map.addChild(mapLake)
 
+      // Create the map title
+      mapText = new PIXI.Text("Les événements".toUpperCase(), {
+          fontFamily: 'Pathway Gothic One',
+          fontSize: "30px",
+          fontWeight: "400",
+          letterSpacing: 0,
+          fill: "#121212",
+          align: 'center',
+          lineHeight: 1,
+          padding: 30
+      });
+      mapText.anchor.x = 0.5;
+      mapText.anchor.y = 0.5;
+      mapText.alpha = 0.95;
+      mapText.x = app.screen.width/2;
+      mapText.y = projection([6.5, 46.60])[1]*mapScale + (app.screen.height - mapHeight * mapScale) / 2
+
+
+      console.log( projection(lemanBounds[0])[0] )
+
+      // Add the elements to the scene
       mapContainer.addChild(map)
       mapContainer.addChild(mapText)
       scenes.map.addChild(mapContainer)
 
+      // Filters
       blurFilter = new PIXI.filters.BlurFilter();
       noiseFilter = new PIXI.filters.NoiseFilter();
       blurFilter.blur = 1;
@@ -588,7 +597,7 @@
             if(mouseposition.x >= 0 && mouseposition.x <= app.screen.width
               && mouseposition.y >= 0 && mouseposition.y <= app.screen.height){
               sceneParallaxIt(mouseposition, mapBackground, -150);
-              parallaxIt(mouseposition, mapContainer, -250);
+              parallaxIt(mouseposition, mapContainer, -100);
             }
 
 
